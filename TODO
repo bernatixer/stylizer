@@ -1,7 +1,6 @@
 TODO
 ----
- 
- - Fer servir el fitxer `.env` (https://fastapi.tiangolo.com/advanced/settings/#reading-a-env-file), possar el host i referenciar-ho al path dels estils
+
  - Crear una excepció per tornar `message` i no `detail`
 
  - Entendre el mecanisme del style transfer
@@ -21,6 +20,7 @@ TODO
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
 
+ - Fer un docker per prod i local
  - Afegir style checker
  - Afegir framework per fer tests
  - Fer tests

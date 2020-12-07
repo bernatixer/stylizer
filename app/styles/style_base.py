@@ -1,4 +1,11 @@
-class StyleBase:
+from base import Base
+
+
+class StyleBase(Base):
+
+    def __init__(self):
+        super().__init__()
+
 
     def get_representation(self):
         return {

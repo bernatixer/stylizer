@@ -23,7 +23,7 @@ async def root():
 
 @app.get("/api/styles")
 async def root():
-    return styles_handler.handle(styles)
+    return styles_handler.handle()
 
 
 @app.post("/api/stylize/")
