@@ -22,7 +22,7 @@ async def root():
 
 
 @app.get("/api/styles")
-async def root():
+async def get_styles():
     return styles_handler.handle()
 
 

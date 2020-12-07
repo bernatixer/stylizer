@@ -2,6 +2,10 @@
 
 Apply a given style to an image in real time.
 
+## Usage
+
+You can find the docs here: http://localhost:8080/docs
+
 ## Running
 
 ### Run the service in a Docker container
