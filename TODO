@@ -1,26 +1,26 @@
 TODO
 ----
+ 
+ - Fer servir el fitxer `.env` (https://fastapi.tiangolo.com/advanced/settings/#reading-a-env-file), possar el host i referenciar-ho al path dels estils
+ - Crear una excepció per tornar `message` i no `detail`
 
- - Afegir mes error-checking
- - Arreglar warnings
  - Entendre el mecanisme del style transfer
  - Fer framework per entrenar models
  - Provar a entrenar algún model
+
+ - Afegir mes error-checking
+ - Arreglar warnings
  - Acabar de netejar el controller de `stylize`
- - Fer servir el fitxer `.env` (https://fastapi.tiangolo.com/advanced/settings/#reading-a-env-file), possar el host i referenciar-ho al path dels estils
  - Pensar algo perque la carpeta `temp` no creixi infinitament
- - Crear una excepció per tornar `message` i no `detail`
  - Convertir `styles.py` en un servei depenent de que més es faci a la app
  - Acordar el nom i extensió de la foto retornada (jpg, png, ...)
+ - Solucionar problema amb imatges PNG (tenen 4 canals) assegurar-se que l'últim que ara trec no cal realment
 
  - Afegir GitHub actions (o similar) per fer autodeploy
-
- - Solucionar problema amb imatges PNG (tenen 4 canals) assegurar-se que l'últim que ara trec no cal realment
 
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
 
- - Fer un docker
  - Afegir style checker
  - Afegir framework per fer tests
  - Fer tests
