@@ -14,19 +14,20 @@ TODO
  - Convertir `styles.py` en un servei depenent de que més es faci a la app
  - Solucionar problema amb imatges PNG (tenen 4 canals) assegurar-se que l'últim que ara trec no cal realment
     - Acordar el nom i extensió de la foto retornada (jpg, png, ...)
-
- - Afegir GitHub actions (o similar) per fer autodeploy
-
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
 
+ DEPLOY
+ - Afegir GitHub actions (o similar) per fer autodeploy
  - Fer un docker per prod i local
  - Mirar de posar el port al fitxer de docker
 
+ SECOND
  - Afegir style checker
  - Afegir framework per fer tests
  - Fer tests
 
+ THIRD
  - Afegir metriques (DataDog, Kibana, etc... Buscar algún gratis)
  - Mirar Lambda de Amazon aveure si ens pot servir
 
