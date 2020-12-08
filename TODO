@@ -1,19 +1,19 @@
 TODO
 ----
 
- - Crear una excepció per tornar `message` i no `detail`
-
+ DL
  - Entendre el mecanisme del style transfer
  - Fer framework per entrenar models
  - Provar a entrenar algún model
 
+ BACKEND
  - Afegir mes error-checking
  - Arreglar warnings
  - Acabar de netejar el controller de `stylize`
  - Pensar algo perque la carpeta `temp` no creixi infinitament
  - Convertir `styles.py` en un servei depenent de que més es faci a la app
- - Acordar el nom i extensió de la foto retornada (jpg, png, ...)
  - Solucionar problema amb imatges PNG (tenen 4 canals) assegurar-se que l'últim que ara trec no cal realment
+    - Acordar el nom i extensió de la foto retornada (jpg, png, ...)
 
  - Afegir GitHub actions (o similar) per fer autodeploy
 
@@ -21,6 +21,8 @@ TODO
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
 
  - Fer un docker per prod i local
+ - Mirar de posar el port al fitxer de docker
+
  - Afegir style checker
  - Afegir framework per fer tests
  - Fer tests
