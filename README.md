@@ -4,21 +4,41 @@ Apply a given style to an image in real time.
 
 ## Usage
 
-You can find the docs here: http://localhost:8080/docs
+You can find the docs here: http://localhost:8000/docs
+
+Format the code using the following command:
+```bash
+make format
+```
 
 ## Running
 
-### Run the service in a Docker container
+### Run the service using Docker
 
 Run the following commands to build the Docker container and run it:
 
+First build the image:
 ```bash
-docker build -t stylize .
-docker run -p 8080:8080 -e PORT="8080" stylize
+make build
 ```
 
-Service starts on port: http://localhost:8080
+Then, run the docker:
+```bash
+make run
+```
 
-### Run the service manually
+Service starts on port: http://localhost:8000
 
-TBD
+### Run the service locally
+
+First install the dependencies:
+```bash
+make install
+```
+
+Then, run the service:
+```bash
+make run-dev
+```
+
+Service starts on port: http://localhost:8000
