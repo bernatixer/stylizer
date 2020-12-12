@@ -20,7 +20,6 @@ TODO
  DEPLOY
  - Afegir GitHub actions (o similar) per fer autodeploy
  - Fer un docker per prod i local
- - Mirar de posar el port al fitxer de docker
 
  SECOND
  - Afegir framework per fer tests
