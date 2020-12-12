@@ -2,7 +2,6 @@ from styles.style_base import StyleBase
 
 
 class Bayanihan(StyleBase):
-
     def __init__(self):
         super().__init__()
         self.NAME = "bayanihan"

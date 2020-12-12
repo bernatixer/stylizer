@@ -1,11 +1,9 @@
-from fastapi import FastAPI, File, UploadFile, Form
+from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.staticfiles import StaticFiles
-
 from handlers.root import RootHandler
-from handlers.stylize import StylizeHandler
 from handlers.styles import StylesHandler
+from handlers.stylize import StylizeHandler
 from styles.styles import Styles
-
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")

@@ -1,14 +1,12 @@
-import torch
-import os
 import time
-from libs import utils, transformer
+
+import torch
+from libs import transformer, utils
 
 
 class StylizeController:
-
     def __init__(self):
-        self.device = ("cuda" if torch.cuda.is_available() else "cpu")
-
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     def stylize(self, filename: str, filename_result: str, style_path: str):
         net = transformer.TransformerNetwork()
@@ -17,9 +15,9 @@ class StylizeController:
 
         with torch.no_grad():
             torch.cuda.empty_cache()
-            
+
             content_image = utils.load_image(filename)
-            
+
             starttime = time.time()
 
             content_tensor = utils.itot(content_image).to(self.device)

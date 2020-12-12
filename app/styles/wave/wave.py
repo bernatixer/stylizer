@@ -2,7 +2,6 @@ from styles.style_base import StyleBase
 
 
 class Wave(StyleBase):
-
     def __init__(self):
         super().__init__()
         self.NAME = "wave"
