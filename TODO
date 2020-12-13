@@ -4,7 +4,9 @@ TODO
  DL
  - Entendre el mecanisme del style transfer
  - Fer framework per entrenar models
- - Provar a entrenar algún model
+ - Decidir estils a transferir
+ - Buscar millors parametres
+ - Entrenar models
 
  BACKEND
  - Afegir mes error-checking
@@ -34,3 +36,11 @@ Refs
 
  - https://github.com/rrmina/fast-neural-style-pytorch
  - https://github.com/abhiskk/fast-neural-style
+
+ - https://github.com/luanfujun/deep-photo-styletransfer 
+ - https://github.com/NVIDIA/FastPhotoStyle
+ - https://github.com/limingcv/Photorealistic-Style-Transfer // https://github.com/limingcv/Photorealistic-Style-Transfer/blob/master/Photorealistic%20Style%20Transfer/transfer.ipynb
+ 
+ - https://github.com/luanfujun/deep-painterly-harmonization
+
+ - https://towardsdatascience.com/deep-learning-based-super-resolution-without-using-a-gan-11c9bb5b6cd5
