@@ -1,6 +1,6 @@
 from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
 from fastapi.staticfiles import StaticFiles
-from handlers.root import RootHandler
+from handlers.index import IndexHandler
 from handlers.styles import StylesHandler
 from handlers.stylize import StylizeHandler
 from styles.styles import Styles
@@ -9,14 +9,14 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 styles = Styles()
-root_handler = RootHandler()
+index_handler = IndexHandler()
 styles_handler = StylesHandler(styles)
 stylize_handler = StylizeHandler(styles)
 
 
 @app.get("/")
-async def root():
-    return root_handler.handle()
+async def index():
+    return index_handler.handle()
 
 
 @app.get("/api/styles")

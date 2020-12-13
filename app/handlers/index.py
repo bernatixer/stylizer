@@ -1,4 +1,4 @@
-class RootHandler:
+class IndexHandler:
     def __init__(self):
         self.SUCCESS_RESPONSE = {"status": "OK"}
 
