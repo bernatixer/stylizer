@@ -1,8 +1,8 @@
 from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
 from fastapi.staticfiles import StaticFiles
 from handlers.index import IndexHandler
-from handlers.styles import StylesHandler
-from handlers.stylize import StylizeHandler
+from handlers.styles_list import StylesListHandler
+from handlers.transfer_style import TransferStyleHandler
 from styles.styles import Styles
 
 app = FastAPI()
@@ -10,8 +10,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 styles = Styles()
 index_handler = IndexHandler()
-styles_handler = StylesHandler(styles)
-stylize_handler = StylizeHandler(styles)
+styles_list_handler = StylesListHandler(styles)
+transfer_style_handler = TransferStyleHandler(styles)
 
 
 @app.get("/")
@@ -21,7 +21,7 @@ async def index():
 
 @app.get("/api/styles")
 async def get_styles():
-    return styles_handler.handle()
+    return styles_list_handler.handle()
 
 
 @app.post("/api/stylize/")
@@ -30,4 +30,4 @@ async def stylize_image(
     file: UploadFile = File(...),
     style: str = Form(...),
 ):
-    return stylize_handler.handle(file, style, background_tasks)
+    return transfer_style_handler.handle(file, style, background_tasks)

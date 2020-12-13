@@ -1,7 +1,7 @@
 from styles.styles import Styles
 
 
-class StylesHandler:
+class StylesListHandler:
     def __init__(self, styles: Styles):
         self.styles = styles
 

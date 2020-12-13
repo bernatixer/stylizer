@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 from styles.styles import Styles
 
 
-class StylizeHandler:
+class TransferStyleHandler:
     controller: StylizeController = None
 
     def __init__(self, styles: Styles):
