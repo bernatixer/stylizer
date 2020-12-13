@@ -23,7 +23,8 @@ class StylizeController:
             generated_tensor = net(content_tensor)
             generated_image = utils.ttoi(generated_tensor.detach())
 
-        print("Elapsed time: {}".format(time.time() - start_time))
+        formatted_process_time = '{0:.2f}'.format((time.time() - start_time)*1000)
+        print("Process time: {}ms".format(formatted_process_time))
         utils.saveimg(generated_image, filename_result)
 
     def load_model(self, style_path):
