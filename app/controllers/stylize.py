@@ -9,6 +9,7 @@ class StylizeController:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     def stylize(self, filename: str, filename_result: str, style_path: str):
+        # Pre-init models in memory
         net = transformer.TransformerNetwork()
         net.load_state_dict(torch.load(style_path))
         net = net.to(self.device)

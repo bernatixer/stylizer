@@ -7,7 +7,7 @@ install:
 	pip install -r requirements.txt
 
 build:
-	docker build -t styletransfer .
+	docker build -t stylize .
 
 run-dev:
 	cd app && uvicorn main:app --reload
