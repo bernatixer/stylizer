@@ -1,4 +1,3 @@
-import shutil
 from uuid import uuid4
 
 from controllers.stylize import StylizeController
@@ -23,8 +22,9 @@ class StylizeHandler:
         file_id = str(uuid4())
         filename = "{}/{}.jpg".format(self.TEMP_FOLDER, file_id)
         filename_result = "{}/result-{}.jpg".format(self.TEMP_FOLDER, file_id)
-        with open(filename, "wb") as f_destination:
-            shutil.copyfileobj(file.file, f_destination)
+
+        self.controller.save_image(file, filename)
+        self.controller.convert_image(filename)
 
         self.controller.stylize(filename, filename_result, style_path)
         background_tasks.add_task(self.controller.remove_file, filename)

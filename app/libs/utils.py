@@ -6,10 +6,7 @@ from torchvision import transforms
 
 def load_image(path):
     image = Image.open(path)
-    if len(image.split()) == 3:
-        R, G, B = image.split()
-    else:
-        R, G, B, _ = image.split()
+    R, G, B = image.split()
     image = Image.merge("RGB", (B, G, R))
     data = asarray(image)
 
@@ -22,7 +19,7 @@ def saveimg(img, image_path):
     img = Image.fromarray((img).astype(np.uint8))
     R, G, B = img.split()
     img = Image.merge("RGB", (B, G, R))
-    img.save(image_path)
+    img.save(image_path, format="JPEG", subsampling=0, quality=100)
 
 
 # Preprocessing ~ Image to Tensor

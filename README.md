@@ -11,6 +11,8 @@ Format the code using the following command:
 make format
 ```
 
+> ℹ️ Images are returned in JPG format
+
 ## Running
 
 ### Run the service using Docker

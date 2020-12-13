@@ -1,8 +1,10 @@
 import os
+import shutil
 import time
 
 import torch
 from libs import transformer, utils
+from PIL import Image
 
 
 class StylizeController:
@@ -31,6 +33,15 @@ class StylizeController:
         net = net.to(self.device)
 
         return net
+
+    def save_image(self, file, filename):
+        with open(filename, "wb") as f_destination:
+            shutil.copyfileobj(file.file, f_destination)
+
+    def convert_image(self, filename):
+        img = Image.open(filename)
+        rgb_img = img.convert("RGB")
+        rgb_img.save(filename)
 
     def remove_file(self, path):
         os.remove(path)
