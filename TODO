@@ -12,7 +12,7 @@ TODO
  - Afegir mes error-checking
  - Afegir logging
  - Pre carregar models a memòria amb `joblib`
- - Convertir `styles.py` en un servei depenent de que més es faci a la app
+ - Mirar de crear un servei per tot lo de ML
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
    - Afegir throttling per token
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
