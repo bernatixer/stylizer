@@ -1,16 +1,16 @@
 from uuid import uuid4
 
-from controllers.stylize import StylizeController
+from controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from styles.styles import Styles
 
 
 class TransferStyleHandler:
-    controller: StylizeController = None
+    controller: TransferStyleController = None
 
     def __init__(self, styles: Styles):
-        self.controller = StylizeController()
+        self.controller = TransferStyleController()
         self.TEMP_FOLDER = "temp"
         self.STYLE_MAP = styles.get_styles_models()
 
@@ -26,7 +26,7 @@ class TransferStyleHandler:
         self.controller.save_image(file, filename)
         self.controller.convert_image(filename)
 
-        self.controller.stylize(filename, filename_result, style_path)
+        self.controller.transfer_style(filename, filename_result, style_path)
         background_tasks.add_task(self.controller.remove_file, filename)
         background_tasks.add_task(self.controller.remove_file, filename_result)
         return FileResponse(filename_result)

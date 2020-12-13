@@ -7,11 +7,11 @@ from libs import transformer, utils
 from PIL import Image
 
 
-class StylizeController:
+class TransferStyleController:
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    def stylize(self, filename: str, filename_result: str, style_path: str):
+    def transfer_style(self, filename: str, filename_result: str, style_path: str):
         net = self.load_model(style_path)
 
         start_time = time.time()
