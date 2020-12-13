@@ -11,6 +11,7 @@ TODO
  BACKEND
  - Afegir mes error-checking
  - Afegir logging
+ - Pre carregar models a memòria amb `joblib`
  - Convertir `styles.py` en un servei depenent de que més es faci a la app
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
    - Afegir throttling per token
