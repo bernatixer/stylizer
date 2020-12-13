@@ -7,4 +7,4 @@ class Bayanihan(StyleBase):
         self.NAME = "bayanihan"
         self.DISPLAY_NAME = "Bayanihan"
         self.MODEL_PATH = "styles/bayanihan/bayanihan.pth"
-        self.DISPLAY_IMAGE = "{}/lazy.jpg".format(self.STATIC_PATH)
+        self.DISPLAY_IMAGE = "{}/bayanihan.jpg".format(self.STATIC_PATH)
