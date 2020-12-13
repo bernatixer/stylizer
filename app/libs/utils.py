@@ -1,5 +1,4 @@
 import numpy as np
-from numpy import asarray
 from PIL import Image
 from torchvision import transforms
 
@@ -8,7 +7,7 @@ def load_image(path):
     image = Image.open(path)
     R, G, B = image.split()
     image = Image.merge("RGB", (B, G, R))
-    data = asarray(image)
+    data = np.array(image)
 
     return data
 
