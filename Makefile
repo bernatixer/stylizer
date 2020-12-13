@@ -4,7 +4,7 @@ format:
 	flake8 --max-line-length 88
 	
 install:
-	pip install -r requirements.txt
+	pip install -r app/requirements.txt
 
 build:
 	docker build -t stylize .
