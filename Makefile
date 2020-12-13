@@ -2,9 +2,9 @@ format:
 	isort .
 	black .
 	flake8 --max-line-length 88
-	
+
 install:
-	pip install -r app/requirements.txt
+	pip install -r requirements.txt
 
 build:
 	docker build -t stylize .
