@@ -9,10 +9,11 @@ TODO
  - Entrenar models
 
  BACKEND
- - Afegir mes error-checking
- - Afegir logging
+ - Repartir bé funcions de `transfer_style`
  - Pre carregar models a memòria amb `joblib`
  - Mirar de crear un servei per tot lo de ML
+ - Afegir logging
+ - Afegir mes error-checking
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
    - Afegir throttling per token
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
