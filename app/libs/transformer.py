@@ -42,9 +42,9 @@ class TransformerNetwork(nn.Module):
 
 class TransformerNetworkTanh(TransformerNetwork):
     """
-    A modification of the transformation network that uses Tanh function as output
-    This follows more closely the architecture outlined in the original paper's supplementary
-    material his model produces darker images and provides retro styling effect
+    A modification of the transformation network that uses Tanh function as output.
+    This follows more closely the architecture outlined in the original paper's
+    supplementary material his model produces darker images and provides retro styling effect
     Reference: https://cs.stanford.edu/people/jcjohns/papers/fast-style/fast-style-supp.pdf
     """
 

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, Form, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
 from fastapi.staticfiles import StaticFiles
 from handlers.root import RootHandler
 from handlers.styles import StylesHandler
@@ -25,5 +25,9 @@ async def get_styles():
 
 
 @app.post("/api/stylize/")
-async def stylize_image(file: UploadFile = File(...), style: str = Form(...)):
-    return stylize_handler.handle(file, style)
+async def stylize_image(
+    background_tasks: BackgroundTasks,
+    file: UploadFile = File(...),
+    style: str = Form(...),
+):
+    return stylize_handler.handle(file, style, background_tasks)
