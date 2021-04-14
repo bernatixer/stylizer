@@ -19,7 +19,7 @@ async def index():
     return index_handler.handle()
 
 
-@app.get("/api/styles")
+@app.get("/api/styles/")
 async def get_styles():
     return styles_list_handler.handle()
 

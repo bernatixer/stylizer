@@ -12,6 +12,7 @@ TODO
  - Repartir bé funcions de `transfer_style`
  - Pre carregar models a memòria amb `joblib`
  - Mirar de crear un servei per tot lo de ML
+
  - Afegir logging
  - Afegir mes error-checking
  - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
@@ -21,6 +22,7 @@ TODO
  DEPLOY
  - Afegir GitHub actions (o similar) per fer autodeploy
  - Fer un docker per prod i local
+ - PROD: Check (https://www.uvicorn.org/#running-with-gunicorn)
 
  SECOND
  - Afegir framework per fer tests
@@ -33,6 +35,11 @@ TODO
 
 Refs
 ----
+Deep Learning code: https://colab.research.google.com/drive/1T9oUFvLWJKAOfOQlZgLe14iyUWiY_yYA#scrollTo=VemyMnyPZl31
+
+Interesting
+ - https://deepai.org/apis
+ - https://deep-image.ai/plans
 
 Style transfer
  - https://github.com/rrmina/fast-neural-style-pytorch
@@ -41,6 +48,8 @@ Style transfer
 Color transfer
  - https://github.com/luanfujun/deep-photo-styletransfer 
  - https://github.com/NVIDIA/FastPhotoStyle
+ - https://github.com/frcs/colour-transfer
+ - https://github.com/codeslake/Color_Transfer_Histogram_Analogy
  - https://github.com/limingcv/Photorealistic-Style-Transfer // https://github.com/limingcv/Photorealistic-Style-Transfer/blob/master/Photorealistic%20Style%20Transfer/transfer.ipynb
 
  - https://towardsdatascience.com/deep-learning-based-super-resolution-without-using-a-gan-11c9bb5b6cd5
