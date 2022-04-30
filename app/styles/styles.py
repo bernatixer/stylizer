@@ -19,3 +19,5 @@ class Styles:
     def get_styles_models(self):
         styles_map = {style.NAME: style.MODEL_PATH for style in self.STYLES}
         return styles_map
+
+styles_class = Styles()

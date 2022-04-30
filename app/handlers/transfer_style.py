@@ -3,16 +3,15 @@ from uuid import uuid4
 from controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
-from styles.styles import Styles
+from styles.styles import styles_class
 
 
 class TransferStyleHandler:
     controller: TransferStyleController = None
 
-    def __init__(self, styles: Styles):
+    def __init__(self):
         self.controller = TransferStyleController()
         self.TEMP_FOLDER = "temp"
-        self.STYLE_MAP = styles.get_styles_models()
 
     def handle(self, file: UploadFile, style: str, background_tasks: BackgroundTasks):
         style_path = self.get_style_model_path(style)
@@ -32,7 +31,7 @@ class TransferStyleHandler:
         return FileResponse(filename_result)
 
     def get_style_model_path(self, style: str):
-        if style in self.STYLE_MAP:
-            return self.STYLE_MAP[style]
+        if style in styles_class.STYLES_MODELS:
+            return styles_class.STYLES_MODELS[style]
 
         return None

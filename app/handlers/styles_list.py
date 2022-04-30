@@ -1,9 +1,9 @@
-from styles.styles import Styles
+from styles.styles import styles_class
 
 
 class StylesListHandler:
-    def __init__(self, styles: Styles):
-        self.styles = styles
+    def __init__(self):
+        pass
 
     def handle(self):
-        return {"styles": self.styles.STYLES_REPRESENTATIONS}
+        return {"styles": styles_class.STYLES_REPRESENTATIONS}
