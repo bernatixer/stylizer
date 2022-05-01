@@ -1,15 +1,14 @@
 from typing import Any
 
 from fastapi import APIRouter, File, Form, BackgroundTasks, UploadFile
-from handlers.styles_list import StylesListHandler
-from handlers.transfer_style import TransferStyleHandler
+from handlers.styles_list import styles_list_handler
+from handlers.transfer_style import transfer_style_handler
 
 router = APIRouter()
 
 
 @router.get("/")
 def get_styles() -> Any:
-    styles_list_handler = StylesListHandler()
     return styles_list_handler.handle()
 
 
@@ -19,5 +18,4 @@ def stylize_image(
     file: UploadFile = File(...),
     style: str = Form(...),
 ):
-    transfer_style_handler = TransferStyleHandler()
     return transfer_style_handler.handle(file, style, background_tasks)

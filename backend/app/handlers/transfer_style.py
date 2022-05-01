@@ -35,3 +35,5 @@ class TransferStyleHandler:
             return styles_class.STYLES_MODELS[style]
 
         return None
+
+transfer_style_handler = TransferStyleHandler()

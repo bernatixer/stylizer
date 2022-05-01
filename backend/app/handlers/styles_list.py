@@ -7,3 +7,5 @@ class StylesListHandler:
 
     def handle(self):
         return {"styles": styles_class.STYLES_REPRESENTATIONS}
+
+styles_list_handler = StylesListHandler()
