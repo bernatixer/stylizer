@@ -24,5 +24,16 @@ services:
       context: ./backend
       dockerfile: ./Dockerfile
 
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:5050"
+    networks:
+      - default
+    depends_on:
+      - db
+    env_file:
+      - .env
+
 volumes:
   app-db-data:
