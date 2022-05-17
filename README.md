@@ -39,6 +39,13 @@ make install
 ```
 
 Then, run the service:
+
+Run Postgres
+
+```bash
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=changethis -e POSTGRES_USER=postgres -e POSTGRES_DB=app postgres
+```
+
 ```bash
 make run-dev
 ```
