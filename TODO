@@ -65,6 +65,7 @@ Color transfer
 
 
 Latent diffusion
+ - https://github.com/jina-ai/dalle-flow
  - https://github.com/CompVis/latent-diffusion
  - https://github.com/crowsonkb/v-diffusion-pytorch
  - LAION 400M: https://colab.research.google.com/github/multimodalart/latent-diffusion-notebook/blob/main/Latent_Diffusion_LAION_400M_model_text_to_image.ipynb?authuser=2#scrollTo=nCf8SsHK0pCU
