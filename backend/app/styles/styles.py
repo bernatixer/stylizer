@@ -4,11 +4,15 @@ from styles.mosaic.mosaic import Mosaic
 from styles.starry.starry import Starry
 from styles.testmodel.testmodel import Testmodel
 from styles.wave.wave import Wave
+from styles.ross.ross import Ross
+from styles.wanderer.wanderer import Wanderer
+from styles.trippy.trippy import Trippy
+from styles.trippy2.trippy2 import Trippy2
 
 
 class Styles:
     def __init__(self):
-        self.STYLES = [Mosaic(), Wave(), Starry(), Lazy(), Bayanihan(), Testmodel()]
+        self.STYLES = [Mosaic(), Wave(), Starry(), Lazy(), Bayanihan(), Testmodel(), Wanderer(), Ross(), Trippy(), Trippy2()]
         self.STYLES_MODELS = self.get_styles_models()
         self.STYLES_REPRESENTATIONS = self.get_styles_representations()
 
