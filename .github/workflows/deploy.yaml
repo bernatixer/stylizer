@@ -1,22 +1,32 @@
----
-  name: 'deploy'
+name: Deploy changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Push to dokku
+        uses: dokku/github-action@master
+        with:
+          git_remote_url: 'ssh://dokku@37.187.122.100:22/stylizer'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
   
-  on:
-    push:
-      branches:
-        - main
-  
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Cloning repo
-          uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
-  
-        - name: Push to dokku
-          uses: dokku/github-action@master
-          with:
-            git_remote_url: 'ssh://dokku@37.187.122.100:22/stylizer'
-            ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  notify:
+    name: Notify slack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
