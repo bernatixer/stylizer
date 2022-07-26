@@ -11,7 +11,9 @@ router = APIRouter()
 
 
 @router.get("/")
-def get_styles() -> Any:
+def get_styles(
+    db: Session = Depends(get_db)
+) -> Any:
     return styles_list_handler.handle(db)
 
 @router.get("/transform")
