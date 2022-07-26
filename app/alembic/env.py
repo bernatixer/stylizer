@@ -32,7 +32,7 @@ target_metadata = Base.metadata
 
 def get_url():
     user = os.getenv("POSTGRES_USER", "postgres")
-    password = os.getenv("POSTGRES_PASSWORD", "")
+    password = os.getenv("POSTGRES_PASSWORD", "changethis")
     server = os.getenv("POSTGRES_SERVER", "37.187.122.100:5432")
     db = os.getenv("POSTGRES_DB", "app")
     return f"postgresql://{user}:{password}@{server}/{db}"
