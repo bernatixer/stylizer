@@ -39,6 +39,7 @@ jobs:
 
   notify_result:
     name: Notify result on slack
+    if: ${{ always() }}
     needs: deploy
     runs-on: ubuntu-latest
     steps:
