@@ -20,6 +20,7 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
+from config import settings
 from db.base import Base  # noqa
 
 target_metadata = Base.metadata
@@ -31,10 +32,10 @@ target_metadata = Base.metadata
 
 
 def get_url():
-    user = os.getenv("POSTGRES_USER", "postgres")
-    password = os.getenv("POSTGRES_PASSWORD", "changethis")
-    server = os.getenv("POSTGRES_SERVER", "37.187.122.100:5432")
-    db = os.getenv("POSTGRES_DB", "app")
+    user = settings.POSTGRES_USER
+    password = settings.POSTGRES_PASSWORD
+    server = settings.POSTGRES_SERVER
+    db = settings.POSTGRES_DB
     return f"postgresql://{user}:{password}@{server}/{db}"
 
 

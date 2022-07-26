@@ -20,7 +20,7 @@ jobs:
           SLACK_COLOR: info
           SLACK_TITLE: 'Starting deployment for stylizer :package:'
           MSG_MINIMAL: true
-          SLACK_FOOTER: 'Deployment finished with ${{ job.status }}'
+          SLACK_FOOTER: ''
 
   deploy:
     name: Deploy
