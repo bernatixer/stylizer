@@ -35,5 +35,5 @@ jobs:
           SLACK_ICON: https://img.icons8.com/color/452/van-gogh.png
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: 'Deploy stylizer :rocket:'
-          MSG_MINIMAL: actions url, commit
-          SLACK_FOOTER: 'Powered by :frame_with_picture:'
+          MSG_MINIMAL: 'actions url,commit'
+          SLACK_FOOTER: 'Deployment result: ${{ job.status }}'
