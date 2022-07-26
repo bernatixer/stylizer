@@ -23,6 +23,7 @@ jobs:
   
   notify:
     name: Notify slack
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
