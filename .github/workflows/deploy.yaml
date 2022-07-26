@@ -25,6 +25,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    outputs:
+      deploy_status: ${{ steps.dokku.outputs.status }}
     steps:
       - name: Cloning repo
         uses: actions/checkout@v2
@@ -32,6 +34,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push to dokku
+        id: dokku
         uses: dokku/github-action@master
         with:
           git_remote_url: 'ssh://dokku@${{ secrets.SERVER_ADDRESS }}:22/stylizer'
@@ -53,4 +56,4 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: 'Deploy stylizer :rocket:'
           MSG_MINIMAL: 'actions url,commit'
-          SLACK_FOOTER: 'Deployment finished with ${{ job.status }}'
+          SLACK_FOOTER: 'Deployment finished with ${{ needs.deploy.outputs.deploy_status }}'
