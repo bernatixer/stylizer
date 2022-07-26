@@ -13,4 +13,4 @@ run:
 	docker-compose up
 
 run-dev:
-	cd backend/app && uvicorn main:app --env-file ../../.env.local --reload
+	cd app && uvicorn main:app --env-file ../.env.local --reload

@@ -21,7 +21,7 @@ services:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
     build:
-      context: ./backend
+      context: ./
       dockerfile: ./Dockerfile
 
   pgadmin:
