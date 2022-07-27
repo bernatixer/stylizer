@@ -1,8 +1,4 @@
 from styles.styles import styles_class
-import logging
-
-
-logger = logging.getLogger(__name__)
 
 
 class StylesListHandler:

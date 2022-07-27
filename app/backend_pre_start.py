@@ -4,8 +4,7 @@ from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixe
 
 from db.session import SessionLocal
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 
 max_tries = 60 * 5  # 5 minutes
 wait_seconds = 1

@@ -3,8 +3,7 @@ import logging
 # from db.init_db import init_db
 from db.session import SessionLocal
 
-# logging.basicConfig(level=logging.INFO)
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 
 def init() -> None:
     db = SessionLocal()
