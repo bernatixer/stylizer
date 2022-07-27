@@ -34,7 +34,7 @@ target_metadata = Base.metadata
 def get_url():
     user = settings.POSTGRES_USER
     password = settings.POSTGRES_PASSWORD
-    server = "db"
+    server = settings.POSTGRES_SERVER
     db = settings.POSTGRES_DB
     return f"postgresql://{user}:{password}@{server}/{db}"
 
