@@ -6,9 +6,9 @@ isort==5.6.4
 black==20.8b1
 flake8==3.8.4
 uvicorn==0.13.1
-Pillow==8.0.1
+Pillow==9.2.0
 SQLAlchemy==1.4.36
 psycopg2-binary==2.9.3
 alembic==1.8.0
 tenacity==8.0.1
-pythonjsonlogger==2.0.4
+python-json-logger==2.0.4
