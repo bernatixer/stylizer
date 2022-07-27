@@ -3,7 +3,7 @@ import logging
 # from db.init_db import init_db
 from db.session import SessionLocal
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 
 def init() -> None:
     db = SessionLocal()
@@ -11,7 +11,6 @@ def init() -> None:
 
 
 def main() -> None:
-    logger = logging.getLogger()
     logger.info("Creating initial data")
     init()
     logger.info("Initial data created")
