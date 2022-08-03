@@ -8,7 +8,7 @@ from pythonjsonlogger import jsonlogger
 
 logger = logging.getLogger()
 
-logHandler = logging.FileHandler(filename='./tixer-log.json')
+logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
 formatter = jsonlogger.JsonFormatter()
 logHandler.setFormatter(formatter)
 logger.addHandler(logHandler)
