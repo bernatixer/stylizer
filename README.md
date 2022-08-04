@@ -51,3 +51,13 @@ make run-dev
 ```
 
 Service starts on port: http://localhost:8000
+
+## Deploy
+
+A good way to deploy this application on a single server would be to use Dokku.
+
+In order to make the logs be accessible from the Docker volume to the host machine, the following option must be run after setting up the Dokku instalation.
+
+```bash
+dokku docker-options:add stylizer deploy,run "-v /home/dokku/logs/stylizer:/var/log/stylizer.log"
+```
