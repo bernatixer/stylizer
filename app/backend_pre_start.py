@@ -1,6 +1,5 @@
-import logging
-
 from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
+from logger import LOG
 
 from db.session import SessionLocal
 
@@ -23,14 +22,14 @@ def init() -> None:
         # Try to create session to check if DB is awake
         db.execute("SELECT 1")
     except Exception as e:
-        logger.error(e)
+        LOG.error(e)
         raise e
 
 
 def main() -> None:
-    logger.info("Initializing service")
+    LOG.info("Initializing service")
     init()
-    logger.info("Service finished initializing")
+    LOG.info("Service finished initializing")
 
 
 if __name__ == "__main__":

@@ -3,11 +3,18 @@ from pythonjsonlogger import jsonlogger
 
 
 class Logger:
-    logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
-    formatter = jsonlogger.JsonFormatter()
-    logHandler.setFormatter(formatter)
-    logger = logging.getLogger()
-    logger.addHandler(logHandler)
-    logger.setLevel(logging.INFO)
+    def __init__(self):
+        logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
+        formatter = jsonlogger.JsonFormatter()
+        logHandler.setFormatter(formatter)
 
-LOG = logging.getLogger()
+        appLogger = logging.getLogger()
+        appLogger.addHandler(logHandler)
+        appLogger.setLevel(logging.INFO)
+
+        uviCornLogger = logging.getLogger("uvicorn.access")
+        uviCornLogger.addHandler(logHandler)
+
+        self.logger = appLogger
+
+LOG = Logger().logger

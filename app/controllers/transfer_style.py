@@ -1,13 +1,11 @@
 import os
 import shutil
 import time
-import logging
 
 import torch
 from libs import transformer, utils
 from PIL import Image
-
-logger = logging.getLogger(__name__)
+from logger import LOG
 
 class TransferStyleController:
     def __init__(self):
@@ -26,7 +24,7 @@ class TransferStyleController:
             generated_image = utils.ttoi(generated_tensor.detach())
 
         formatted_process_time = '{0:.2f}'.format((time.time() - start_time)*1000)
-        logger.info("Process time: {}ms".format(formatted_process_time))
+        LOG.info("Process time: {}ms".format(formatted_process_time))
         utils.saveimg(generated_image, filename_result)
 
     def load_model(self, style_path):

@@ -1,10 +1,8 @@
-import logging
 
 # from db.init_db import init_db
 from db.session import SessionLocal
+from logger import LOG
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 def init() -> None:
     db = SessionLocal()
@@ -12,9 +10,9 @@ def init() -> None:
 
 
 def main() -> None:
-    logger.info("Creating initial data")
+    LOG.info("Creating initial data")
     init()
-    logger.info("Initial data created")
+    LOG.info("Initial data created")
 
 
 if __name__ == "__main__":
