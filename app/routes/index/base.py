@@ -4,7 +4,6 @@ from logger import LOG
 
 
 router = APIRouter()
-logger = logging.getLogger()
 
 @router.get("/")
 def index():
