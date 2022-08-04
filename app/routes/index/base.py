@@ -1,18 +1,11 @@
 from fastapi import APIRouter
 from handlers.index import IndexHandler
 
-router = APIRouter()
-
 import logging
-from pythonjsonlogger import jsonlogger
 
+
+router = APIRouter()
 logger = logging.getLogger()
-
-logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
-formatter = jsonlogger.JsonFormatter()
-logHandler.setFormatter(formatter)
-logger.addHandler(logHandler)
-logger.setLevel(logging.INFO)
 
 @router.get("/")
 def index():
