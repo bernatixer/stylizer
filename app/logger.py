@@ -7,13 +7,15 @@ class Logger:
         logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
         formatter = jsonlogger.JsonFormatter()
         logHandler.setFormatter(formatter)
-
         appLogger = logging.getLogger()
         appLogger.addHandler(logHandler)
         appLogger.setLevel(logging.INFO)
 
         uviCornLogger = logging.getLogger("uvicorn.access")
-        uviCornLogger.addHandler(logHandler)
+        uvicornHandler = logging.FileHandler(filename='/var/log/stylizer.log')
+        uvicornFormatter = jsonlogger.JsonFormatter("%(asctime)s %(levelname)s %(name)s %(message)s"
+        uvicornHandler.setFormatter(uvicornFormatter)
+        uviCornLogger.addHandler(uvicornHandler)
 
         self.logger = appLogger
 
