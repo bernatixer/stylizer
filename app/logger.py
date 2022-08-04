@@ -13,7 +13,7 @@ class Logger:
 
         uviCornLogger = logging.getLogger("uvicorn.access")
         uvicornHandler = logging.FileHandler(filename='/var/log/stylizer.log')
-        uvicornFormatter = jsonlogger.JsonFormatter("%(asctime)s %(levelname)s %(name)s %(message)s"
+        uvicornFormatter = jsonlogger.JsonFormatter("%(asctime)s %(levelname)s %(name)s %(message)s")
         uvicornHandler.setFormatter(uvicornFormatter)
         uviCornLogger.addHandler(uvicornHandler)
 
