@@ -7,12 +7,12 @@ from routes.router import api_router
 
 # logging.basicConfig(level=logging.INFO)
 
-import logger
 from pythonjsonlogger import jsonlogger
 
 logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
 formatter = jsonlogger.JsonFormatter()
 logHandler.setFormatter(formatter)
+logger = logging.getLogger()
 logger.addHandler(logHandler)
 logger.setLevel(logging.INFO)
 
