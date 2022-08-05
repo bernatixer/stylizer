@@ -3,9 +3,9 @@ from uuid import uuid4
 from controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
-from styles.styles import styles_class
 from repositories.transformation import transformation
 from schemas.transformation import TransformationCreate
+from styles.styles import styles_class
 
 
 class TransferStyleHandler:
@@ -15,7 +15,9 @@ class TransferStyleHandler:
         self.controller = TransferStyleController()
         self.TEMP_FOLDER = "temp"
 
-    def handle(self, file: UploadFile, style: str, background_tasks: BackgroundTasks, db):
+    def handle(
+        self, file: UploadFile, style: str, background_tasks: BackgroundTasks, db
+    ):
         style_path = self.get_style_model_path(style)
         if not style_path:
             raise HTTPException(status_code=400, detail="Invalid style provided")
@@ -40,5 +42,6 @@ class TransferStyleHandler:
             return styles_class.STYLES_MODELS[style]
 
         return None
+
 
 transfer_style_handler = TransferStyleHandler()

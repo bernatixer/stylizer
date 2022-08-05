@@ -1,12 +1,13 @@
-from pydantic import BaseSettings, validator, PostgresDsn
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
+
+from pydantic import BaseSettings, PostgresDsn, validator
 
 
 class Settings(BaseSettings):
     DOMAIN: str
     STATIC_FOLDER: str
     ENVIRONMENT: str
-    
+
     POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str

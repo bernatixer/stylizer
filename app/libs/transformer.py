@@ -3,9 +3,8 @@ import torch.nn as nn
 
 class TransformerNetwork(nn.Module):
     """
-    Feedforward Transformation Network without Tanh
-    reference: https://arxiv.org/abs/1603.08155
-    exact architecture: https://cs.stanford.edu/people/jcjohns/papers/fast-style/fast-style-supp.pdf
+    Feedforward Transformation Network without Tanh reference: https://arxiv.org/abs/1603.08155
+    Exact architecture: https://cs.stanford.edu/people/jcjohns/papers/fast-style/fast-style-supp.pdf
     """
 
     def __init__(self):

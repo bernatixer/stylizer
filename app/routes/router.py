@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-
 from routes.api import styles
 from routes.index import base
 

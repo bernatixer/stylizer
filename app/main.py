@@ -1,16 +1,19 @@
-import logging
 import time
-from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile, Request
+
+from config import settings
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-from styles.styles import Styles
 from logger import LOG
-
 from routes.router import api_router
-
 
 app = FastAPI()
 app.include_router(api_router)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount(
+    f"/{settings.STATIC_FOLDER}",
+    StaticFiles(directory=settings.STATIC_FOLDER),
+    name=settings.STATIC_FOLDER,
+)
+
 
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next):

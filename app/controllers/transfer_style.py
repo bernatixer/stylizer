@@ -4,8 +4,9 @@ import time
 
 import torch
 from libs import transformer, utils
-from PIL import Image
 from logger import LOG
+from PIL import Image
+
 
 class TransferStyleController:
     def __init__(self):
@@ -23,7 +24,7 @@ class TransferStyleController:
             generated_tensor = net(content_tensor)
             generated_image = utils.ttoi(generated_tensor.detach())
 
-        formatted_process_time = '{0:.2f}'.format((time.time() - start_time)*1000)
+        formatted_process_time = "{0:.2f}".format((time.time() - start_time) * 1000)
         LOG.info("Process time: {}ms".format(formatted_process_time))
         utils.saveimg(generated_image, filename_result)
 

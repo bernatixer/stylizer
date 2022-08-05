@@ -1,8 +1,8 @@
-from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
-from logger import LOG
 import logging
 
 from db.session import SessionLocal
+from logger import LOG
+from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
 
 max_tries = 60 * 5  # 5 minutes
 wait_seconds = 1
