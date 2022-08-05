@@ -27,7 +27,7 @@ class Logger:
             logHandler.setFormatter(formatter)
             logger.addHandler(logHandler)
 
-    def map_levelname_to_status() -> None:
+    def map_levelname_to_status(self) -> None:
         oldFactory = logging.getLogRecordFactory()
 
         def record_factory(*args: str, **kwargs: str) -> logging.LogRecord:
