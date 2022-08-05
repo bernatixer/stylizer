@@ -1,5 +1,6 @@
 import logging
 from pythonjsonlogger import jsonlogger
+from config import settings
 
 
 class Logger:
@@ -20,7 +21,11 @@ class Logger:
             for handler in logger.handlers:
                 logger.removeHandler(handler)
             logger.level = logging.INFO
-            logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
+
+            logHandler = logging.StreamHandler()
+            if not settings.isLocal:
+                logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
+            
             formatter = jsonlogger.JsonFormatter(
                 "%(asctime)s %(levelname)s %(name)s %(message)s"
             )

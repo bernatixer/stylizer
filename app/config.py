@@ -5,6 +5,7 @@ from typing import Optional, Dict, Any
 class Settings(BaseSettings):
     DOMAIN: str
     STATIC_FOLDER: str
+    ENVIRONMENT: str
     
     POSTGRES_SERVER: str
     POSTGRES_USER: str
@@ -26,6 +27,9 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+
+    def isLocal(self):
+        return self.ENVIRONMENT == "local"
 
 
 settings = Settings()
