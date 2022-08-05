@@ -9,28 +9,23 @@ TODO
  - Entrenar models
 
  BACKEND
+ - Afegir login amb token (JWT-Bearer)
+
+ - Afegir mes error-checking
+ - Afegir throttling per token
+ - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
  - Repartir bé funcions de `transfer_style`
  - Pre carregar models a memòria amb `joblib`
  - Mirar de crear un servei per tot lo de ML
-
- - Afegir logging
- - Afegir mes error-checking
- - Afegir login amb token (https://fastapi.tiangolo.com/tutorial/bigger-applications/#dependencies)
-   - Afegir throttling per token
- - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
-
- DEPLOY
- - Afegir GitHub actions (o similar) per fer autodeploy
- - Fer un docker per prod i local
- - PROD: Check (https://www.uvicorn.org/#running-with-gunicorn)
+ - Investigar com funciona amb gunicorn i mes workers vs unicorn alone
 
  SECOND
  - Afegir framework per fer tests
  - Fer tests
+ - Afegir traces als logs (https://starlette-context.readthedocs.io/en/latest/fastapi.html, https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi, https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/python/?tab=otherenvironments)
 
  THIRD
  - Investigar si Celery ajudaria: https://fastapi.tiangolo.com/tutorial/background-tasks/#caveat
- - Afegir metriques (DataDog, Kibana, etc... Buscar algún gratis)
  - Mirar Lambda de Amazon aveure si ens pot servir
 
 Refs
