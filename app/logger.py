@@ -7,7 +7,7 @@ class Logger:
         self.setup_log()
         self.map_levelname_to_status()
 
-        self.logger = appLogger
+        self.logger = logging.getLogger()
 
     def setup_log(self):
         loggers = [
