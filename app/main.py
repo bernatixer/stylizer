@@ -25,7 +25,7 @@ async def add_process_time_header(request: Request, call_next):
         "Request in middleware",
         extra={
             "status": response.status_code,
-            "duration": process_time,
+            "duration_ms": process_time*1000,
             "client_ip": request.client.host
         }
     )

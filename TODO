@@ -10,23 +10,21 @@ TODO
 
  BACKEND
  - Afegir login amb token (JWT-Bearer)
+ - Afegir throttling per token (DB/Redis limits)
 
  - Afegir mes error-checking
- - Afegir throttling per token
  - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
  - Repartir bé funcions de `transfer_style`
  - Pre carregar models a memòria amb `joblib`
  - Mirar de crear un servei per tot lo de ML
  - Investigar com funciona amb gunicorn i mes workers vs unicorn alone
+ - Ordenar una mica les carpetes
 
- SECOND
+ AFTER
  - Afegir framework per fer tests
  - Fer tests
- - Afegir traces als logs (https://starlette-context.readthedocs.io/en/latest/fastapi.html, https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi, https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/python/?tab=otherenvironments)
-
- THIRD
+ - Afegir traces als logs (https://starlette-context.readthedocs.io/en/latest/fastapi.html, https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi, https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/python/?tab=otherenvironments, https://www.starlette.io/middleware/)
  - Investigar si Celery ajudaria: https://fastapi.tiangolo.com/tutorial/background-tasks/#caveat
- - Mirar Lambda de Amazon aveure si ens pot servir
 
 Refs
 ----
