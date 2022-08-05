@@ -1,5 +1,5 @@
 import logging
-from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, Form, UploadFile, Request
 from fastapi.staticfiles import StaticFiles
 from styles.styles import Styles
 
