@@ -23,9 +23,11 @@ class Logger:
                 logger.removeHandler(handler)
             logger.level = logging.INFO
 
-            logHandler = logging.StreamHandler()
-            if not settings.isLocal:
-                logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
+            LOG.info(f"Env: {settings.ENVIRONMENT}")
+            logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
+            # logHandler = logging.StreamHandler()
+            # if not settings.isLocal:
+            #     logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
 
             formatter = jsonlogger.JsonFormatter(
                 "%(asctime)s %(name)s %(message)s"
