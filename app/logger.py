@@ -10,22 +10,22 @@ class Logger:
         self.logger = appLogger
 
     def setup_log(self):
-    loggers = [
-        logging.getLogger("uvicorn.access"),
-        logging.getLogger("uvicorn.error"),
-        logging.getLogger("uvicorn"),
-        logging.getLogger(),
-    ]
-    for logger in loggers:
-        for handler in logger.handlers:
-            logger.removeHandler(handler)
-        logger.level = logging.INFO
-        logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
-        formatter = jsonlogger.JsonFormatter(
-            "%(asctime)s %(levelname)s %(name)s %(message)s"
-        )
-        logHandler.setFormatter(formatter)
-        logger.addHandler(logHandler)
+        loggers = [
+            logging.getLogger("uvicorn.access"),
+            logging.getLogger("uvicorn.error"),
+            logging.getLogger("uvicorn"),
+            logging.getLogger(),
+        ]
+        for logger in loggers:
+            for handler in logger.handlers:
+                logger.removeHandler(handler)
+            logger.level = logging.INFO
+            logHandler = logging.FileHandler(filename='/var/log/stylizer.log')
+            formatter = jsonlogger.JsonFormatter(
+                "%(asctime)s %(levelname)s %(name)s %(message)s"
+            )
+            logHandler.setFormatter(formatter)
+            logger.addHandler(logHandler)
 
     def map_levelname_to_status() -> None:
         oldFactory = logging.getLogRecordFactory()
