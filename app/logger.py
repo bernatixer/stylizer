@@ -23,7 +23,7 @@ class Logger:
                 logger.removeHandler(handler)
             logger.level = logging.INFO
 
-            LOG.info(f"Env: {settings.ENVIRONMENT}")
+            logger.info(f"Env: {settings.ENVIRONMENT}")
             logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
             # logHandler = logging.StreamHandler()
             # if not settings.isLocal:
