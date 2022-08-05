@@ -4,8 +4,8 @@ from pythonjsonlogger import jsonlogger
 
 class Logger:
     def __init__(self):
-        setup_log()
-        map_levelname_to_status()
+        self.setup_log()
+        self.map_levelname_to_status()
 
         self.logger = appLogger
 
