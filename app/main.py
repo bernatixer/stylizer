@@ -1,7 +1,7 @@
 import time
 
 from config import settings
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
 from logger import LOG
 from routes.router import api_router
@@ -20,6 +20,13 @@ async def add_process_time_header(request: Request, call_next):
     start_time = time.time()
     response = await call_next(request)
     process_time = time.time() - start_time
-    response.headers["X-Process-Time"] = str(process_time)
-    LOG.info(response, extra={"level": 200})
+    print(request.client)
+    LOG.info(
+        "Request in middleware",
+        extra={
+            "status": response.status_code,
+            "duration": process_time,
+            "client_ip": request.client.host
+        }
+    )
     return response

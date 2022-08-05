@@ -7,7 +7,7 @@ from pythonjsonlogger import jsonlogger
 class Logger:
     def __init__(self):
         self.setup_log()
-        self.map_levelname_to_status()
+        self.personalize_logs()
 
         self.logger = logging.getLogger()
 
@@ -28,17 +28,18 @@ class Logger:
                 logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
 
             formatter = jsonlogger.JsonFormatter(
-                "%(asctime)s %(levelname)s %(name)s %(message)s"
+                "%(asctime)s %(name)s %(message)s"
             )
             logHandler.setFormatter(formatter)
             logger.addHandler(logHandler)
 
-    def map_levelname_to_status(self) -> None:
+    def personalize_logs(self) -> None:
         oldFactory = logging.getLogRecordFactory()
 
         def record_factory(*args: str, **kwargs: str) -> logging.LogRecord:
             record = oldFactory(*args, **kwargs)
-            record.status = record.levelname
+            record.level = record.levelname
+            record.env = settings.ENVIRONMENT
             return record
 
         logging.setLogRecordFactory(record_factory)
