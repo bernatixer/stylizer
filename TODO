@@ -7,6 +7,7 @@ TODO
  - Decidir estils a transferir
  - Buscar millors parametres
  - Entrenar models
+ - https://github.com/clovaai/WCT2
 
  BACKEND
  - Afegir login amb token (JWT-Bearer)
@@ -49,6 +50,7 @@ Color transfer
  - https://github.com/frcs/colour-transfer
  - https://github.com/codeslake/Color_Transfer_Histogram_Analogy
  - https://github.com/limingcv/Photorealistic-Style-Transfer // https://github.com/limingcv/Photorealistic-Style-Transfer/blob/master/Photorealistic%20Style%20Transfer/transfer.ipynb
+ - https://github.com/clovaai/WCT2
 
  - https://towardsdatascience.com/deep-learning-based-super-resolution-without-using-a-gan-11c9bb5b6cd5
 
