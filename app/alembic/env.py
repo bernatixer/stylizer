@@ -19,8 +19,8 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
-from ..config import settings
 from db.base import Base  # noqa
+# from infrastructuree.config import settings
 
 target_metadata = Base.metadata
 
@@ -31,10 +31,10 @@ target_metadata = Base.metadata
 
 
 def get_url():
-    user = settings.POSTGRES_USER
-    password = settings.POSTGRES_PASSWORD
-    server = settings.POSTGRES_SERVER
-    db = settings.POSTGRES_DB
+    user = "settings.POSTGRES_USER"
+    password = "settings.POSTGRES_PASSWORD"
+    server = "settings.POSTGRES_SERVER"
+    db = "settings.POSTGRES_DB"
     return f"postgresql://{user}:{password}@{server}/{db}"
 
 

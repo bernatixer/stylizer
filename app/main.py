@@ -1,6 +1,6 @@
 import time
 
-from config import settings
+from infrastructure.config import settings
 from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
 from logger import LOG

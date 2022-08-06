@@ -1,4 +1,4 @@
-from config import settings
+from infrastructure.config import settings
 
 
 class Base:

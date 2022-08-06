@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 
-from config import settings
+from infrastructure.config import settings
 from pythonjsonlogger import jsonlogger
 
 
