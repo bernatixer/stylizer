@@ -61,3 +61,14 @@ In order to make the logs be accessible from the Docker volume to the host machi
 ```bash
 dokku docker-options:add stylizer deploy,run "-v /home/dokku/logs/stylizer:/var/log"
 ```
+
+## Database migrations
+
+In order to run database migrations, the way to do it is through Alembic.
+
+```bash
+cd app
+alembic revision -m "Migration description name"
+```
+
+This will create a new migration file under the alembic folder, in which you can set there the migration.
