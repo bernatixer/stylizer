@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from controllers.transfer_style import TransferStyleController
+from api.controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from repositories.transformation import transformation

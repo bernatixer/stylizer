@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from handlers.index import IndexHandler
+from api.handlers.index import IndexHandler
 
 router = APIRouter()
 

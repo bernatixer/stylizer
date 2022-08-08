@@ -1,10 +1,10 @@
 from typing import Any
 
-from deps import get_db
+from infrastructure.deps import get_db
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, UploadFile
-from handlers.styles_list import styles_list_handler
-from handlers.transfer_style import transfer_style_handler
-from handlers.transfered_styles import transfered_styles_handler
+from api.handlers.styles_list import styles_list_handler
+from api.handlers.transfer_style import transfer_style_handler
+from api.handlers.transfered_styles import transfered_styles_handler
 from sqlalchemy.orm import Session
 
 router = APIRouter()

@@ -3,7 +3,7 @@ import time
 from infrastructure.config import settings
 from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
-from logger import LOG
+from infrastructure.logger import LOG
 from routes.router import api_router
 
 app = FastAPI()
