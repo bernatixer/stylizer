@@ -9,6 +9,7 @@ COPY .env /app/.env
 WORKDIR /app/
 
 ENV PYTHONPATH=/app
+RUN git config --global --add safe.directory /github/workspace
 
 CMD ["sh", "./prestart.sh"]
 # CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
