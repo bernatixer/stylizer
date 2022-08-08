@@ -8,6 +8,8 @@ COPY ./app /app
 COPY .env /app/.env
 WORKDIR /app/
 
+ENV PYTHONPATH=/app
+
 CMD ["sh", "./prestart.sh"]
 # CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
 # CMD ["gunicorn", "main:app", "-workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind" "0.0.0.0:80"]
