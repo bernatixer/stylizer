@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 
 class Transformation(BaseModel):
-    id: int
     style: str
 
     class Config:
