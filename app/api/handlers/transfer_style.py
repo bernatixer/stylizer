@@ -3,8 +3,8 @@ from uuid import uuid4
 from api.controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
-from repositories.transformation import transformation
-from schemas.transformation import TransformationCreate
+from repositories.transformation import transformation_repository
+from schemas.transformation import Transformation
 from styles.styles import styles_class
 
 
@@ -33,7 +33,7 @@ class TransferStyleHandler:
         background_tasks.add_task(self.controller.remove_file, filename)
         background_tasks.add_task(self.controller.remove_file, filename_result)
 
-        transformation.create(db=db, obj_in=TransformationCreate(style=style))
+        transformation_repository.create(db=db, obj_in=Transformation(style=style))
 
         return FileResponse(filename_result)
 

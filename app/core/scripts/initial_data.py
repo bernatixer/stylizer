@@ -1,6 +1,6 @@
 # from db.init_db import init_db
 from db.session import SessionLocal
-from infrastructure.logger import LOG
+from core.logger import LOG
 
 
 def init() -> None:

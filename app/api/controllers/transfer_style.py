@@ -4,7 +4,7 @@ import time
 
 import torch
 from libs import transformer, utils
-from infrastructure.logger import LOG
+from core.logger import LOG
 from PIL import Image
 
 

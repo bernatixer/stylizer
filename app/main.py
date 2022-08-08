@@ -1,9 +1,9 @@
 import time
 
-from infrastructure.config import settings
+from core.config import settings
 from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
-from infrastructure.logger import LOG
+from core.logger import LOG
 from routes.router import api_router
 
 app = FastAPI()

@@ -1,12 +1,10 @@
-from entities.transformation import Transformation
-from repositories.base import CRUDBase
-from schemas.transformation import TransformationCreate, TransformationUpdate
+from repositories.base import BaseRepository
+from schemas.transformation import Transformation
+from repositories.entities.transformation import TransformationEntity
 
 
-class CRUDTransformation(
-    CRUDBase[Transformation, TransformationCreate, TransformationUpdate]
-):
+class TransformationRepository(BaseRepository[TransformationEntity, Transformation]):
     pass
 
 
-transformation = CRUDTransformation(Transformation)
+transformation_repository = TransformationRepository(TransformationEntity, Transformation)

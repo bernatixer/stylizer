@@ -1,4 +1,4 @@
-from infrastructure.config import settings
+from core.config import settings
 
 
 class Base:

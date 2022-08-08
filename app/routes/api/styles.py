@@ -1,6 +1,6 @@
 from typing import Any
 
-from infrastructure.deps import get_db
+from core.deps import get_db
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, UploadFile
 from api.handlers.styles_list import styles_list_handler
 from api.handlers.transfer_style import transfer_style_handler
