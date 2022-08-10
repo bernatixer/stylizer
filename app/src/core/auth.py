@@ -5,7 +5,6 @@ from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"/auth/login")
 def decode_token(token: str):
     try:
         payload = jwt.decode(
