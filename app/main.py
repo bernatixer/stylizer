@@ -1,10 +1,10 @@
 import time
 
-from core.config import settings
 from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
-from core.logger import LOG
-from routes.router import api_router
+from src.core.config import settings
+from src.core.logger import LOG
+from src.routes.router import api_router
 
 app = FastAPI()
 app.include_router(api_router)
@@ -16,7 +16,7 @@ app.mount(
 
 
 @app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
+async def add_process_time_header(request: Request, call_next) -> Response:
     start_time = time.time()
     response = await call_next(request)
     process_time = time.time() - start_time
