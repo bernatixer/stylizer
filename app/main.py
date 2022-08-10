@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.staticfiles import StaticFiles
 from src.core.config import settings
 from src.core.logger import LOG
-from src.routes.router import api_router
+from src.router import api_router
 
 app = FastAPI()
 app.include_router(api_router)

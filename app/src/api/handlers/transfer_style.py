@@ -4,7 +4,7 @@ from src.api.controllers.transfer_style import TransferStyleController
 from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from src.repositories.transformation import transformations_repository
-from src.schemas.transformation import Transformations
+from src.schemas.transformation import Transformation
 from src.styles.styles import styles_class
 
 
@@ -33,7 +33,7 @@ class TransferStyleHandler:
         background_tasks.add_task(self.controller.remove_file, filename)
         background_tasks.add_task(self.controller.remove_file, filename_result)
 
-        transformations_repository.create(db=db, obj_in=Transformations(style=style))
+        transformations_repository.create(db=db, obj_in=Transformation(style=style))
 
         return FileResponse(filename_result)
 

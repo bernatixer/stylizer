@@ -1,10 +1,10 @@
 from src.repositories.base import BaseRepository
-from src.schemas.transformation import Transformations
+from src.schemas.transformation import Transformation
 from src.repositories.entities.transformation import TransformationsEntity
 
 
-class TransformationsRepository(BaseRepository[TransformationsEntity, Transformations]):
+class TransformationsRepository(BaseRepository[TransformationsEntity, Transformation]):
     pass
 
 
-transformations_repository = TransformationsRepository(TransformationsEntity, Transformations)
+transformations_repository = TransformationsRepository(TransformationsEntity, Transformation)

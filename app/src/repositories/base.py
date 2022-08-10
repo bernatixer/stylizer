@@ -24,19 +24,15 @@ class BaseRepository(Generic[ModelType, SchemaType]):
         self.model = model
         self.schema = schema
 
-    def get(self, db: Session, id: Any) -> Optional[ModelType]:
+    def get(self, db: Session, id: Any) -> Optional[SchemaType]:
         obj = db.query(self.model).filter(self.model.id == id).first()
-        obj_in_data = jsonable_encoder(obj)
-        return self.schema(**obj_in_data)
+        return self.model_to_schema(obj)
 
     def get_multi(
         self, db: Session, *, skip: int = 0, limit: int = 100
-    ) -> List[ModelType]:
-        elems = []
-        for elem in db.query(self.model).offset(skip).limit(limit).all():
-            obj_in_data = jsonable_encoder(elem)
-            elems.append(self.schema(**obj_in_data))
-        return elems
+    ) -> List[SchemaType]:
+        results = db.query(self.model).offset(skip).limit(limit).all()
+        return [self.model_to_schema(elem) for elem in results]
 
     def create(self, db: Session, *, obj_in: ModelType) -> ModelType:
         obj_in_data = jsonable_encoder(obj_in)
@@ -72,3 +68,7 @@ class BaseRepository(Generic[ModelType, SchemaType]):
         db.commit()
         obj_in_data = jsonable_encoder(obj)
         return self.model(**obj_in_data)
+
+    def model_to_schema(self, model: ModelType):
+        obj_in_data = jsonable_encoder(model)
+        return self.schema(**obj_in_data) if obj_in_data else None

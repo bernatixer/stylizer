@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 from src.api.handlers.index import IndexHandler
 
-router = APIRouter()
+index_router = APIRouter()
 
 
-@router.get("/")
+@index_router.get("/")
 def index():
     index_handler = IndexHandler()
     return index_handler.handle()

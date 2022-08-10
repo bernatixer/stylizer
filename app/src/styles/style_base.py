@@ -1,9 +1,9 @@
-from src.base import Base
+from src.core.config import settings
 
 
-class StyleBase(Base):
+class StyleBase:
     def __init__(self):
-        super().__init__()
+        self.STATIC_PATH = "{}/{}".format(settings.DOMAIN, settings.STATIC_FOLDER)
 
     def get_representation(self):
         return {
