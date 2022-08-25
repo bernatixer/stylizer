@@ -9,4 +9,4 @@ alembic upgrade head
 # Create initial data in DB
 python /app/scripts/initial_data.py
 
-exec uvicorn main:app --host 0.0.0.0 --port 80 --reload
+exec uvicorn main:app --host 0.0.0.0 --port 80
