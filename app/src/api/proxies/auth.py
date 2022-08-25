@@ -1,17 +1,19 @@
 from fastapi import APIRouter, Depends, HTTPException
-from src.schemas.user import User
+from sqlalchemy.orm import Session
+from src.api.proxies.models.auth_user_signup_request import UserSignupRequest
+from src.api.proxies.models.auth_user_login_request import UserLoginRequest
 from src.core.deps import get_db
 from src.repositories.users import users_repository
 from src.core.auth import create_access_token
-from sqlalchemy.orm import Session
 from src.core.deps import get_current_user
+from src.core.models.user import User
 
 auth_router = APIRouter()
 
 
 # TODO - Add throttling
 @auth_router.post("/signup")
-def signup(*, db: Session = Depends(get_db), user_data: User):
+def signup(*, db: Session = Depends(get_db), user_data: UserSignupRequest):
     user = users_repository.get_user_by_email(db=db, email=user_data.email)
     
     if user:
@@ -22,12 +24,13 @@ def signup(*, db: Session = Depends(get_db), user_data: User):
     
     return users_repository.create(db=db, obj_in=user_data)
 
+
 @auth_router.post("/login")
-def login(*, db: Session = Depends(get_db), user_data: User):
+def login(*, db: Session = Depends(get_db), user_data: UserLoginRequest):
     user = users_repository.get_user_by_email(db=db, email=user_data.email)
     
     return {
-        "access_token": create_access_token(sub=user.id),  # 4
+        "access_token": create_access_token(sub=user.id),
         "token_type": "bearer",
     }
 

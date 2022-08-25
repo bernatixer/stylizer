@@ -2,6 +2,7 @@ from typing import Generator
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
+from app.src.core.models.user import User
 from db.session import SessionLocal
 from src.core.auth import decode_token
 from src.repositories.users import users_repository
@@ -25,4 +26,5 @@ def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_
             status_code=400,
             detail="Invalid token",
         )
-    return user
+    
+    return User(email=user.email, tokens=user.tokens)

@@ -1,10 +1,8 @@
 from pydantic import BaseModel
 
 
-class User(BaseModel):
-    id: int = None
+class UserSignupRequest(BaseModel):
     email: str
-    tokens: int = 100
 
     class Config:
         orm_mode = True
