@@ -7,6 +7,7 @@ from src.repositories.users import users_repository
 from src.core.auth import create_access_token
 from src.core.deps import get_current_user
 from src.core.models.user import User
+from src.schemas.user import User as UserSchema
 
 auth_router = APIRouter()
 
@@ -22,7 +23,7 @@ def signup(*, db: Session = Depends(get_db), user_data: UserSignupRequest):
             detail="The user with this email already exists",
         )
     
-    return users_repository.create(db=db, obj_in=user_data)
+    return users_repository.create(db=db, obj_in=UserSchema(email=user_data.email))
 
 
 @auth_router.post("/login")

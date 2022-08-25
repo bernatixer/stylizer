@@ -16,8 +16,8 @@ def get_db() -> Generator:
         db.close()
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+security_scheme = OAuth2PasswordBearer(tokenUrl="token")
+def get_current_user(db: Session = Depends(get_db), token: str = Depends(security_scheme)):
     user_id = decode_token(token)
     
     user = users_repository.get(db=db, id=user_id)
