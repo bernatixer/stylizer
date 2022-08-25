@@ -1,6 +1,7 @@
 import time
 
 from fastapi import FastAPI, Request, Response
+from fastapi.openapi.utils import get_openapi
 from fastapi.staticfiles import StaticFiles
 from src.core.config import settings
 from src.core.logger import LOG
@@ -13,6 +14,24 @@ app.mount(
     StaticFiles(directory=settings.STATIC_FOLDER),
     name=settings.STATIC_FOLDER,
 )
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="Stylizer API docs",
+        version="0.0.1",
+        description="This page contains Stylizer API documentation",
+        routes=app.routes,
+    )
+    openapi_schema["info"]["x-logo"] = {
+        "url": "static/logo.png"
+    }
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+
+app.openapi = custom_openapi
 
 
 @app.middleware("http")
