@@ -1,12 +1,8 @@
-<p align="center">
-  <img src="https://github.com/bernatixer/stylizer/blob/main/app/static/logo.jpg" alt="Stylizer">
-</p>
-
-![Deployment](https://github.com/bernatixer/stylizer/actions/workflows/deploy.yaml/badge.svg)
-
-<p align="center">
-  <i>Apply a given style to an image in real time.</i>
-</p>
+<div align="center">
+  <img src="https://github.com/bernatixer/stylizer/blob/main/app/static/logo.png" alt="Stylizer">
+    ![Deployment](https://github.com/bernatixer/stylizer/actions/workflows/deploy.yaml/badge.svg)
+    <i>Apply a given style to an image in real time.</i>
+</div>
 
 ---
 
