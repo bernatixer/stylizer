@@ -3,6 +3,7 @@
     <a href="https://github.com/bernatixer/stylizer/actions" target="_blank">
         <img src="https://github.com/bernatixer/stylizer/actions/workflows/deploy.yaml/badge.svg" alt="Deployment">
     </a>
+    <br/>
     <i>Apply a given style to an image in real time.</i>
 </div>
 
