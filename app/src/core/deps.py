@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from src.exceptions.insufficient_tokens_exception import InsufficientTokensException
 from src.core.logger import LOG
 from src.schemas.user import User
-from src.core.auth import decode_token, security_scheme
+from src.core.auth_service import auth_service
 from src.repositories.users import users_repository
 from db.session import SessionLocal
 
@@ -17,8 +17,8 @@ def get_db() -> Generator:
         db.close()
 
 
-def get_current_user(db: Session = Depends(get_db), token: str = Depends(security_scheme)):
-    user_id = decode_token(token)
+def get_current_user(db: Session = Depends(get_db), token: str = Depends(auth_service.security_scheme)):
+    user_id = auth_service.decode_token(token)
     
     user = users_repository.get(db=db, id=user_id)
     if user is None:

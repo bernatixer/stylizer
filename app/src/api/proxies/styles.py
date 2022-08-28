@@ -3,7 +3,6 @@ from typing import Any
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, UploadFile, Request
 from src.core.deps import authenticate_request
 from src.core.deps import CallCost
-from src.core.models.user import User
 from src.core.deps import get_db
 from src.api.handlers.styles_list import styles_list_handler
 from src.api.handlers.transfer_style import transfer_style_handler
