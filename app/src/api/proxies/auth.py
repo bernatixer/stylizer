@@ -6,7 +6,6 @@ from src.core.deps import get_db
 from src.repositories.users import users_repository
 from src.core.auth import create_access_token
 from src.core.deps import get_current_user
-from src.core.models.user import User
 from src.schemas.user import User as UserSchema
 
 auth_router = APIRouter()
@@ -37,7 +36,7 @@ def login(*, db: Session = Depends(get_db), user_data: UserLoginRequest):
 
 
 @auth_router.get("/me")
-def me(current_user: User = Depends(get_current_user)):
+def me(current_user: UserSchema = Depends(get_current_user)):
     return current_user
 
 

@@ -2,6 +2,7 @@ from fastapi import HTTPException, Depends
 from datetime import datetime, timedelta
 from src.core.config import settings
 from jose import jwt, JWTError
+from fastapi.security import OAuth2PasswordBearer
 
 
 def decode_token(token: str):
@@ -41,3 +42,5 @@ def create_token(
     payload["sub"] = str(sub)
 
     return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+
+security_scheme = OAuth2PasswordBearer(tokenUrl="token")
