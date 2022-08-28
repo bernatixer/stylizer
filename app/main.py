@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from src.core.config import settings
 from src.core.logger import LOG
 from src.router import api_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 app.include_router(api_router)
@@ -13,6 +14,14 @@ app.mount(
     f"/{settings.STATIC_FOLDER}",
     StaticFiles(directory=settings.STATIC_FOLDER),
     name=settings.STATIC_FOLDER,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 def custom_openapi():
