@@ -12,7 +12,8 @@ from sqlalchemy.orm import Session
 styles_router = APIRouter()
 
 
-@styles_router.get("/", dependencies=(Depends(authenticate_request), Depends(CallCost(token_cost=10))))
+# @styles_router.get("/", dependencies=(Depends(authenticate_request), Depends(CallCost(token_cost=10))))
+@styles_router.get("/")
 def get_styles():
     return styles_list_handler.handle()
 
