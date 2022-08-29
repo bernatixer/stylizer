@@ -1,6 +1,12 @@
 TODO
 ----
 
+PROD
+ - Improve PostgresDB security (password-user... closed connection)
+ - Remove --reload from docker
+ - Redeploy Dokku with proper server keys
+ - Improve SSL (https://github.com/dokku/dokku-letsencrypt)
+
  DL
  - Entendre el mecanisme del style transfer
  - Fer framework per entrenar models

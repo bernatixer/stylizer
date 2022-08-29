@@ -69,6 +69,14 @@ In order to make the logs be accessible from the Docker volume to the host machi
 dokku docker-options:add stylizer deploy,run "-v /home/dokku/logs/stylizer:/var/log"
 ```
 
+Currently, the api goes under **api.tixer.dev** which should allow HTTPS traffic, to do so, we can use Dokku plugin.
+
+Though for this to work, we need to setup a domain name which is not an ip address.
+```bash
+dokku domains:add stylizer api.tixer.dev
+dokku letsencrypt:enable stylizer
+```
+
 ## Database migrations
 
 In order to run database migrations, the way to do it is through Alembic.
