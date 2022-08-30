@@ -77,6 +77,11 @@ dokku domains:add stylizer api.tixer.dev
 dokku letsencrypt:enable stylizer
 ```
 
+You may also want to increase the default nginx timeout
+```bash
+dokku nginx:set stylizer proxy-read-timeout 120s
+```
+
 ## Database migrations
 
 In order to run database migrations, the way to do it is through Alembic.
