@@ -16,20 +16,17 @@ PROD
  - https://github.com/clovaai/WCT2
 
  BACKEND
- - Ordenar una mica les carpetes
- - Afegir login amb token (JWT-Bearer)
  - Afegir throttling per token (DB/Redis limits)
  - Logs de Alembic a Datadog
  - Moure /temp fora de /app (?)
  - Deploy únicament amb Docker `--reload`
  - Mirar `marshmallow` per tema passar schema<->entity
-
- - Afegir mes error-checking
- - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
+ - Sistema de cues per no petar server
  - Repartir bé funcions de `transfer_style`
- - Pre carregar models a memòria amb `joblib`
  - Mirar de crear un servei per tot lo de ML
- - Investigar com funciona amb gunicorn i mes workers vs unicorn alone
+
+ - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
+ - Pre carregar models a memòria amb `joblib`
 
  AFTER
  - Afegir framework per fer tests
