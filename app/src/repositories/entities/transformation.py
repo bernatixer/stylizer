@@ -1,6 +1,5 @@
 from db.base_class import Base
-from sqlalchemy import Column, Integer, String
-from src.core.logger import LOG
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 
 class TransformationsEntity(Base):
@@ -8,3 +7,4 @@ class TransformationsEntity(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     style = Column(String(256), nullable=False)
+    user = Column(Integer, ForeignKey("users.id"))

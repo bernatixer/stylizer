@@ -23,5 +23,16 @@ services:
       context: ./
       dockerfile: ./Dockerfile
 
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:5050"
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    depends_on:
+      - db
+    env_file:
+      - .env.local
+
 volumes:
   app-db-data:

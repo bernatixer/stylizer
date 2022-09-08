@@ -1,4 +1,4 @@
-from src.styles.style_base import StyleBase
+from src.libs.style.models.style_base import StyleBase
 
 
 class Wanderer(StyleBase):
@@ -6,5 +6,5 @@ class Wanderer(StyleBase):
         super().__init__()
         self.NAME = "wanderer"
         self.DISPLAY_NAME = "Wanderer"
-        self.MODEL_PATH = "src/styles/wanderer/wanderer.pth"
+        self.MODEL_PATH = "src/libs/style/models/wanderer/wanderer.pth"
         self.DISPLAY_IMAGE = "{}/wanderer.jpg".format(self.STATIC_PATH)

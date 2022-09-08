@@ -1,4 +1,4 @@
-from src.styles.style_base import StyleBase
+from src.libs.style.models.style_base import StyleBase
 
 
 class Bayanihan(StyleBase):
@@ -6,5 +6,5 @@ class Bayanihan(StyleBase):
         super().__init__()
         self.NAME = "bayanihan"
         self.DISPLAY_NAME = "Bayanihan"
-        self.MODEL_PATH = "src/styles/bayanihan/bayanihan.pth"
+        self.MODEL_PATH = "src/libs/style/models/bayanihan/bayanihan.pth"
         self.DISPLAY_IMAGE = "{}/bayanihan.jpg".format(self.STATIC_PATH)

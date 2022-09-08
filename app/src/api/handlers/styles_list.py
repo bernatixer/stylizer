@@ -1,4 +1,4 @@
-from src.styles.styles import styles_class
+from src.libs.style.models.styles import styles_class
 
 
 class StylesListHandler:

@@ -1,13 +1,13 @@
-from src.styles.bayanihan.bayanihan import Bayanihan
-from src.styles.lazy.lazy import Lazy
-from src.styles.mosaic.mosaic import Mosaic
-from src.styles.ross.ross import Ross
-from src.styles.starry.starry import Starry
-from src.styles.testmodel.testmodel import Testmodel
-from src.styles.trippy2.trippy2 import Trippy2
-from src.styles.trippy.trippy import Trippy
-from src.styles.wanderer.wanderer import Wanderer
-from src.styles.wave.wave import Wave
+from src.libs.style.models.bayanihan.bayanihan import Bayanihan
+from src.libs.style.models.lazy.lazy import Lazy
+from src.libs.style.models.mosaic.mosaic import Mosaic
+from src.libs.style.models.ross.ross import Ross
+from src.libs.style.models.starry.starry import Starry
+from src.libs.style.models.testmodel.testmodel import Testmodel
+from src.libs.style.models.trippy2.trippy2 import Trippy2
+from src.libs.style.models.trippy.trippy import Trippy
+from src.libs.style.models.wanderer.wanderer import Wanderer
+from src.libs.style.models.wave.wave import Wave
 
 
 class Styles:

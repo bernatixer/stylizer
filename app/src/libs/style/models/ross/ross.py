@@ -1,4 +1,4 @@
-from src.styles.style_base import StyleBase
+from src.libs.style.models.style_base import StyleBase
 
 
 class Ross(StyleBase):
@@ -6,5 +6,5 @@ class Ross(StyleBase):
         super().__init__()
         self.NAME = "ross"
         self.DISPLAY_NAME = "Ross"
-        self.MODEL_PATH = "src/styles/ross/ross.pth"
+        self.MODEL_PATH = "src/libs/style/models/ross/ross.pth"
         self.DISPLAY_IMAGE = "{}/ross.jpg".format(self.STATIC_PATH)
