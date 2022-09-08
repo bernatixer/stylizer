@@ -43,11 +43,3 @@ def me(current_user: User = Depends(get_current_user)):
 @auth_router.get("/users")
 def users(*, db: Session = Depends(get_db)):
     return users_repository.get_multi(db=db)
-
-
-# @auth_router.delete("/users")
-# def index(*, db: Session = Depends(get_db)):
-#     try:
-#         users_repository.remove(db, id=1)
-#     except Exception as e:
-#         return e

@@ -20,8 +20,8 @@ def get_styles():
 
 
 @styles_router.get("/transform")
-def stylize_image(db: Session = Depends(get_db)):
-    return transfered_styles_handler.handle(db)
+def stylize_image(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    return transfered_styles_handler.handle(db, current_user)
 
 
 @styles_router.post("/transform", dependencies=(Depends(authenticate_request), Depends(CallCost(token_cost=10))))
@@ -33,4 +33,3 @@ def stylize_image(
     current_user: User = Depends(get_current_user),
 ):
     return transfer_style_handler.handle(file, style, background_tasks, db, current_user)
-
