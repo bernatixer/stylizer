@@ -10,7 +10,8 @@ jobs:
     name: Build & Push
     runs-on: ubuntu-latest
     env:
-      GITHUB_RUN_ID: ${{ github.run_id }}    
+      GITHUB_RUN_ID: ${{ github.run_id }}
+
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -30,9 +31,10 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ env.GITHUB_RUN_ID }}
 
+      - uses: actions/checkout@v2
       - name: Git Commit
         run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "username@users.noreply.github.com"
+          git config --global user.name "Continuous Integration"
+          git config --global user.email "hello@github.com"
           git commit -a -m "New build released: ${{ env.GITHUB_RUN_ID }}"
           git push
