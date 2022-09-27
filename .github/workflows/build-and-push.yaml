@@ -27,9 +27,13 @@ jobs:
         name: echoing the file name
         run: echo $GITHUB_WORKFLOW:$GITHUB_RUN_ID
 
+      - name: Prepare env
+        run: |
+          echo "BUILD_VERSION=${{ secrets.DOCKERHUB_USERNAME }}/stylizer:$GITHUB_RUN_ID" >> $GITHUB_ENV
+
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/stylizer:"$GITHUB_RUN_ID
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:latest
