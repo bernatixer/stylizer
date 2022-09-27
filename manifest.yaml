@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stylizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: stylizer
+  template:
+    metadata:
+      labels:
+        role: stylizer
+    spec:
+      containers:
+      - name: stylizer
+        image: bernatixer/stylizer:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: dockerreg
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stylizer
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30000
+  selector:
+    role: stylizer
