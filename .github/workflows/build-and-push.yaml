@@ -32,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ $GITHUB_RUN_ID }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ GITHUB_RUN_ID }}
