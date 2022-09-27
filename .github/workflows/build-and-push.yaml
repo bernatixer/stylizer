@@ -9,6 +9,8 @@ jobs:
   docker:
     name: Build & Push
     runs-on: ubuntu-latest
+    env:
+      GITHUB_RUN_ID: ${{ github.run_id }}    
     steps:
       -
         name: Set up QEMU
@@ -27,13 +29,9 @@ jobs:
         name: echoing the file name
         run: echo $GITHUB_WORKFLOW:$GITHUB_RUN_ID
 
-      - name: Prepare env
-        run: |
-          echo "BUILD_VERSION=${{ secrets.DOCKERHUB_USERNAME }}/stylizer:$GITHUB_RUN_ID" >> $GITHUB_ENV
-
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ env.GITHUB_RUN_ID }}
