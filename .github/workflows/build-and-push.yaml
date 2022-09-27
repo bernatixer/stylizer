@@ -25,16 +25,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ env.GITHUB_RUN_ID }}
+      # - name: Build and push
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     push: true
+      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ env.GITHUB_RUN_ID }}
 
       - uses: actions/checkout@v2
       - name: Git Commit
         run: |
           git config --global user.name "Continuous Integration"
           git config --global user.email "hello@github.com"
-          git commit -a -m "New build released: ${{ env.GITHUB_RUN_ID }}"
+          git commit --allow-empty -m "New build released: ${{ env.GITHUB_RUN_ID }}"
           git push
