@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Git Commit
         run: |
-          # git config --global user.name "Continuous Integration"
-          # git config --global user.email "bernat.torres.bellido@gmail.com"
+          git config --global user.name "Continuous Integration"
+          git config --global user.email "bernat.torres.bellido@gmail.com"
           git commit --allow-empty -m "Build ${{ env.GITHUB_RUN_ID }} released"
           git push
