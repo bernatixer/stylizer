@@ -26,8 +26,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pull }}
           ports:
             - containerPort: {{ .Values.deployment.container.port }}
-          imagePullSecrets:
-            - name: dockerreg
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}
+      imagePullSecrets:
+        - name: dockerreg
