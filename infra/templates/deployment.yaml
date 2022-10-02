@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Chart.Name }}
+ 
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+      {{- if .Values.deployment.force }}
+      annotations:
+        roller: {{ randAlphaNum 5 }}
+      {{- end }}
+    spec:
+      containers:
+        - name: {{ .Values.deployment.container.name }}
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pull }}
+          ports:
+            - containerPort: {{ .Values.deployment.container.port }}
+          imagePullSecrets:
+            - name: dockerreg
+          envFrom:
+            - configMapRef:
+                name: {{ .Chart.Name }}

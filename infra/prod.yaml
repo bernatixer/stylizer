@@ -1,0 +1,21 @@
+namespace: default
+ 
+env:
+  HTTP_ADDR: :8080
+ 
+image:
+  name: bernatixer/stylizer
+  tag: latest
+  pull: IfNotPresent
+ 
+deployment:
+  force: false
+  replicas: 1
+  container:
+    name: stylizer
+    port: 8080
+ 
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30000
