@@ -1,7 +1,7 @@
 namespace: default
  
 env:
-  HTTP_ADDR: :8080
+  HTTP_ADDR: :5000
  
 image:
   name: bernatixer/stylizer
@@ -13,9 +13,9 @@ deployment:
   replicas: 1
   container:
     name: stylizer
-    port: 8080
+    port: 5000
  
 service:
   type: NodePort
-  port: 8080
+  port: 5000
   nodePort: 30000
