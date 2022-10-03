@@ -9,8 +9,6 @@ jobs:
   docker:
     name: Build & Push
     runs-on: ubuntu-latest
-    env:
-      GITHUB_RUN_ID: ${{ github.run_id }}
 
     steps:
       - name: Set up QEMU
@@ -25,7 +23,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Bump version and push tag
+      - name: Generate version
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
@@ -37,7 +35,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
 
-      - name: Create a GitHub release
+      - name: Generate GitHub release tag
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
@@ -49,8 +47,8 @@ jobs:
         with:
           branch: main
           targetBranch: main
-          valueFile: 'main/infra/Chart.yaml'
-          propertyPath: 'appVersion'
+          valueFile: 'main/infra/prod.yaml'
+          propertyPath: 'image.tag'
           value: ${{ steps.tag_version.outputs.new_tag }}
           commitChange: true
           updateFile: true
