@@ -44,6 +44,15 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
 
+      - name: Update infra version
+        uses: fjogeleit/yaml-update-action@main
+          with:
+            valueFile: 'infra/Chart.yaml'
+            propertyPath: 'appVersion'
+            value: ${{ steps.tag_version.outputs.new_tag }}
+            commitChange: true
+            updateFile: true
+
       # - uses: actions/checkout@v2
       # - name: Git Commit
       #   run: |
