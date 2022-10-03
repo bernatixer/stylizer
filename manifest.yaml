@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      role: stylizer
+      app: stylizer
   template:
     metadata:
       labels:
-        role: stylizer
+        app: stylizer
     spec:
       containers:
       - name: stylizer
@@ -32,4 +32,4 @@ spec:
     targetPort: 80
     nodePort: 32323
   selector:
-    role: stylizer
+    app: stylizer
