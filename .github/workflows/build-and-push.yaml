@@ -47,7 +47,7 @@ jobs:
         with:
           branch: main
           targetBranch: main
-          valueFile: 'main/infra/prod.yaml'
+          valueFile: 'infra/prod.yaml'
           propertyPath: 'image.tag'
           value: ${{ steps.tag_version.outputs.new_tag }}
           commitChange: true
