@@ -1,20 +1,16 @@
 namespace: default
- 
 env:
-  HTTP_ADDR: :5000
- 
+  HTTP_ADDR: ':5000'
 image:
   name: bernatixer/stylizer
-  tag: v0.0.10
+  tag: v0.0.21
   pull: IfNotPresent
-
 deployment:
   force: false
   replicas: 1
   container:
     name: stylizer
     port: 80
- 
 service:
   type: NodePort
   port: 80
