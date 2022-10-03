@@ -46,13 +46,13 @@ jobs:
 
       - name: Update infra version
         uses: fjogeleit/yaml-update-action@main
-          with:
-            branch: main
-            valueFile: 'infra/Chart.yaml'
-            propertyPath: 'appVersion'
-            value: ${{ steps.tag_version.outputs.new_tag }}
-            commitChange: true
-            updateFile: true
+        with:
+          branch: main
+          valueFile: 'infra/Chart.yaml'
+          propertyPath: 'appVersion'
+          value: ${{ steps.tag_version.outputs.new_tag }}
+          commitChange: true
+          updateFile: true
 
       # - uses: actions/checkout@v2
       # - name: Git Commit
