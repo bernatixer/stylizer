@@ -48,7 +48,8 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           branch: main
-          valueFile: 'infra/Chart.yaml'
+          targetBranch: main
+          valueFile: 'main/infra/Chart.yaml'
           propertyPath: 'appVersion'
           value: ${{ steps.tag_version.outputs.new_tag }}
           commitChange: true
