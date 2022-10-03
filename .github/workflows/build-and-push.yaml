@@ -43,16 +43,13 @@ jobs:
       #     body: ${{ steps.tag_version.outputs.changelog }}
 
       - uses: actions/checkout@v2
-      - run: |
-          ls -l
-
       - name: Update infra version
         uses: fjogeleit/yaml-update-action@main
         with:
           branch: main
           targetBranch: main
-          valueFile: 'infra/prod.yaml'
-          propertyPath: 'image.tag'
+          valueFile: 'infra/Chart.yaml'
+          propertyPath: 'appVersion'
           value: ${{ steps.tag_version.outputs.new_tag }}
           commitChange: true
           updateFile: true
