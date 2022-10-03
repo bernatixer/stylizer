@@ -50,7 +50,7 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
-          context: /app
+          context: "{{defaultContext}}:app"
           file: app/Dockerfile
 
       - name: Generate GitHub release tag
