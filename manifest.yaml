@@ -16,7 +16,7 @@ spec:
       - name: stylizer
         image: bernatixer/stylizer:v0.0.6
         ports:
-        - containerPort: 5000
+        - containerPort: 80
       imagePullSecrets:
         - name: dockerreg
 
@@ -28,8 +28,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 5000
-    targetPort: 5000
-    nodePort: 30000
+  - port: 80
+    targetPort: 80
+    nodePort: 32323
   selector:
     role: stylizer
