@@ -11,4 +11,4 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.deployment.container.port }}
-      nodePort: {{ .Values.deployment.container.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
