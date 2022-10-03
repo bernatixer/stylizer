@@ -5,6 +5,8 @@
     </a>
     <br/>
     <i>Apply a given style to an image in real time.</i>
+    <br/><br/>
+    <i><b>NOTE:</b> This application served as a learning project, so beexpect overengineering or not necessary complex solutions such as Kubernetes.</i>
 </div>
 
 ---
@@ -61,26 +63,9 @@ Service starts on port: http://localhost:8000
 
 ## Deploy
 
-A good way to deploy this application on a single server would be to use Dokku.
+This application has been built using Kubernetes and with a CI/CD pipeline using GitHub Actions and ArgoCD.
 
-In order to make the logs be accessible from the Docker volume to the host machine, the following option must be run after setting up the Dokku instalation.
-
-```bash
-dokku docker-options:add stylizer deploy,run "-v /home/dokku/logs/stylizer:/var/log"
-```
-
-Currently, the api goes under **api.tixer.dev** which should allow HTTPS traffic, to do so, we can use Dokku plugin.
-
-Though for this to work, we need to setup a domain name which is not an ip address.
-```bash
-dokku domains:add stylizer api.tixer.dev
-dokku letsencrypt:enable stylizer
-```
-
-You may also want to increase the default nginx timeout
-```bash
-dokku nginx:set stylizer proxy-read-timeout 120s
-```
+<div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/pipeline.jpg" alt="CI/CD pipeline"></div>
 
 ## Database migrations
 

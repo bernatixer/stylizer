@@ -4,8 +4,21 @@ TODO
 PROD
  - Improve PostgresDB security (password-user... closed connection)
  - Remove --reload from docker
- - Redeploy Dokku with proper server keys
- - Improve SSL (https://github.com/dokku/dokku-letsencrypt)
+ - Redeploy Kubernetes/argoCD with proper security
+ - Improve SSL
+ - When building envs: http://www.inanzzz.com/index.php/post/dlib/setting-up-an-automated-ci-cd-pipeline-with-github-actions-argocd-helm-and-kubernetes
+
+ BACKEND
+ - Crear un servei per tot lo de ML
+ - Afegir throttling per token (DB/Redis limits)
+ - Logs de Alembic a Datadog
+ - Moure /temp fora de /app (?)
+ - Deploy únicament amb Docker `--reload`
+ - Mirar `marshmallow` per tema passar schema<->entity
+ - Sistema de cues per no petar server
+ - Repartir bé funcions de `transfer_style`
+ - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
+ - Pre carregar models a memòria amb `joblib`
 
  DL
  - Entendre el mecanisme del style transfer
@@ -14,19 +27,6 @@ PROD
  - Buscar millors parametres
  - Entrenar models
  - https://github.com/clovaai/WCT2
-
- BACKEND
- - Afegir throttling per token (DB/Redis limits)
- - Logs de Alembic a Datadog
- - Moure /temp fora de /app (?)
- - Deploy únicament amb Docker `--reload`
- - Mirar `marshmallow` per tema passar schema<->entity
- - Sistema de cues per no petar server
- - Repartir bé funcions de `transfer_style`
- - Mirar de crear un servei per tot lo de ML
-
- - Mirar els docs que es generen (http://127.0.0.1:8000/docs)
- - Pre carregar models a memòria amb `joblib`
 
  AFTER
  - Afegir framework per fer tests
