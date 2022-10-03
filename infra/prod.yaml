@@ -5,7 +5,7 @@ env:
  
 image:
   name: bernatixer/stylizer
-  tag: latest
+  tag: v0.0.6
   pull: IfNotPresent
  
 deployment:
