@@ -3,9 +3,9 @@ services:
   db:
     image: postgres:12
     volumes:
-      - app-db-data:/var/lib/postgresql/data/pgdata
+      - db-data:/var/lib/postgresql/data/pgdata
     env_file:
-      - .env.local
+      - app/.env.local
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
 
@@ -16,23 +16,12 @@ services:
     depends_on:
       - db
     volumes:
-    - ./app:/app
+      - ./app:/app
     env_file:
-      - .env.local
+      - app/.env
     build:
-      context: ./
+      context: ./app
       dockerfile: ./Dockerfile
 
-  pgadmin:
-    image: dpage/pgadmin4
-    ports:
-      - "5050:5050"
-    volumes:
-      - app-db-data:/var/lib/postgresql/data/pgdata
-    depends_on:
-      - db
-    env_file:
-      - .env.local
-
 volumes:
-  app-db-data:
+  db-data:

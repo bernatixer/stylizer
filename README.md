@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/bernatixer/stylizer/blob/main/app/static/logo.png" alt="Stylizer">
+  <img src="https://github.com/bernatixer/stylizer/blob/main/assets/logo.png" alt="Stylizer">
     <a href="https://github.com/bernatixer/stylizer/actions" target="_blank">
         <img src="https://github.com/bernatixer/stylizer/actions/workflows/deploy.yaml/badge.svg" alt="Deployment">
     </a>
@@ -22,9 +22,7 @@ make format
 
 > ℹ️ Images are returned in JPG format
 
-## Running
-
-### Run the service using Docker
+## Run stylizer locally
 
 Run the following commands to build the Docker container and run it:
 
@@ -40,32 +38,11 @@ make run
 
 Service starts on port: http://localhost:8000
 
-### Run the service locally
-
-First install the dependencies:
-```bash
-make install
-```
-
-Then, run the service:
-
-Run Postgres
-
-```bash
-docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=changethis -e POSTGRES_USER=postgres -e POSTGRES_DB=app postgres
-```
-
-```bash
-make run-dev
-```
-
-Service starts on port: http://localhost:8000
-
 ## Deploy
 
 This application has been built using Kubernetes and with a CI/CD pipeline using GitHub Actions and ArgoCD.
 
-<div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/pipeline.jpg" alt="CI/CD pipeline"></div>
+<div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/assets/pipeline.jpg" alt="CI/CD pipeline"></div>
 
 ## Database migrations
 
