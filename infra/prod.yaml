@@ -23,16 +23,14 @@ image:
 #     port: 81
 
 deployments:
-  - core-service:
-    force: false
+  - force: false
     replicas: 1
     container:
       name: stylizer
       image: bernatixer/stylizer
       port: 80
 
-  - inference-service:
-    force: false
+  - force: false
     replicas: 1
     container:
       name: inference
