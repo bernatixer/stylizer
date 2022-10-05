@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.deployment.container.name }}
-          image: "{{ .Values.image.name }}:{{ .Chart.AppVersion }}"
+          image: "{{ .Values.deployment.container.image }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pull }}
           ports:
             - containerPort: {{ .Values.deployment.container.port }}

@@ -4,7 +4,6 @@ env:
   HTTP_ADDR: ':5000'
 
 image:
-  name: bernatixer/stylizer
   pull: IfNotPresent
 
 deployment:
@@ -12,6 +11,7 @@ deployment:
   replicas: 2
   container:
     name: stylizer
+    image: bernatixer/stylizer
     port: 80
 
 service:
