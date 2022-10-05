@@ -20,4 +20,4 @@ deployments:
     container:
       name: inference
       image: bernatixer/inference-service
-      port: 81
+      port: 80
