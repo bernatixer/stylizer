@@ -6,28 +6,45 @@ env:
 image:
   pull: IfNotPresent
 
-deployment:
-  force: false
-  replicas: 1
-  container:
-    name: stylizer
-    image: bernatixer/stylizer
-    port: 80
+# deployment:
+#   force: false
+#   replicas: 1
+#   container:
+#     name: stylizer
+#     image: bernatixer/stylizer
+#     port: 80
+
+# deployment:
+#   force: false
+#   replicas: 1
+#   container:
+#     name: inference
+#     image: bernatixer/inference-service
+#     port: 81
+
+deployments:
+  - core-service:
+    force: false
+    replicas: 1
+    container:
+      name: stylizer
+      image: bernatixer/stylizer
+      port: 80
+
+  - inference-service:
+    force: false
+    replicas: 1
+    container:
+      name: inference
+      image: bernatixer/inference-service
+      port: 81
 
 service:
   type: NodePort
   port: 80
   nodePort: 32323
 
-deployment:
-  force: false
-  replicas: 1
-  container:
-    name: inference
-    image: bernatixer/inference-service
-    port: 81
-
-service:
-  type: NodePort
-  port: 81
-  nodePort: 32324
+# service:
+#   type: NodePort
+#   port: 81
+#   nodePort: 32324
