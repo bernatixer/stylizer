@@ -9,7 +9,7 @@ image:
 
 deployment:
   force: false
-  replicas: 1
+  replicas: 2
   container:
     name: stylizer
     port: 80
