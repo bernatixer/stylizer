@@ -7,7 +7,7 @@ deployments:
   - name: core-service
     force: false
     replicas: 1
-    nodePort: 32325
+    nodePort: 31111
     container:
       name: stylizer
       image: bernatixer/stylizer
@@ -16,7 +16,7 @@ deployments:
   - name: inference-service
     force: false
     replicas: 1
-    nodePort: 32324
+    nodePort: 32222
     container:
       name: inference
       image: bernatixer/inference-service
