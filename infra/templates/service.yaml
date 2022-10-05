@@ -10,5 +10,5 @@ spec:
     app: {{ .Chart.Name }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.deployment.container.port }}
+      targetPort: {{ .Values.service.port }}
       nodePort: {{ .Values.service.nodePort }}
