@@ -8,7 +8,7 @@ metadata:
     app: {{ .Chart.Name }}
  
 spec:
-  replicas: {{ .Values.deployments.replicas }}
+  replicas: {{ $deployment.replicas }}
   selector:
     matchLabels:
       app: {{ .Chart.Name }}
@@ -16,17 +16,17 @@ spec:
     metadata:
       labels:
         app: {{ .Chart.Name }}
-      {{- if .Values.deployments.force }}
+      {{- if $deployment.force }}
       annotations:
         roller: {{ randAlphaNum 5 }}
       {{- end }}
     spec:
       containers:
-        - name: {{ .Values.deployments.container.name }}
-          image: "{{ .Values.deployments.container.image }}:{{ .Chart.AppVersion }}"
+        - name: {{ $deployment.container.name }}
+          image: "{{ $deployment.container.image }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pull }}
           ports:
-            - containerPort: {{ .Values.deployments.container.port }}
+            - containerPort: {{ $deployment.container.port }}
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}
