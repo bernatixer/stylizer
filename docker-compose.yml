@@ -5,23 +5,22 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     env_file:
-      - app/.env.local
+      - core-service/.env.local
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
 
-  backend:
-    image: 'backend:0.1'
+  core_service:
+    image: 'core_service'
     ports:
       - "8000:80"
     depends_on:
       - db
     volumes:
-      - ./app:/app
+      - ./core-service:/app
     env_file:
-      - app/.env
+      - core-service/.env
     build:
-      context: ./app
-      dockerfile: ./Dockerfile
+      context: ./core-service
 
 volumes:
   db-data:

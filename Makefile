@@ -8,6 +8,3 @@ build:
 
 run:
 	docker-compose up
-
-run-dev:
-	cd app && uvicorn main:app --env-file .env.local --reload

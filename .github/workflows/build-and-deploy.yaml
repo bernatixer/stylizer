@@ -50,7 +50,7 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
-          context: "{{defaultContext}}:app"
+          context: "{{defaultContext}}:core-service"
 
       - name: Generate GitHub release tag
         uses: ncipollo/release-action@v1
