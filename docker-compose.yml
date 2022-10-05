@@ -22,5 +22,16 @@ services:
     build:
       context: ./core-service
 
+  inference_service:
+    image: 'inference_service'
+    ports:
+      - "8001:80"
+    volumes:
+      - ./inference-service:/app
+    env_file:
+      - inference-service/.env
+    build:
+      context: ./inference-service
+
 volumes:
   db-data:
