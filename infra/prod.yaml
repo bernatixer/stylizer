@@ -20,20 +20,20 @@ env:
 #     port: 81
 
 deployments:
-  - force: false
+  - name: core-service
+    force: false
     replicas: 1
     container:
       name: stylizer
       image: bernatixer/stylizer
-      pull: IfNotPresent
       port: 80
 
-  - force: false
+  - name: inference-service
+    force: false
     replicas: 1
     container:
       name: inference
       image: bernatixer/inference-service
-      pull: IfNotPresent
       port: 81
 
 service:

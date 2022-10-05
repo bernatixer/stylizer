@@ -2,24 +2,23 @@
 {{- $chartAppVersion := .Chart.AppVersion }}
 {{- $nameSpace := .Values.namespace }}
 {{- range $index, $deployment := .Values.deployments }}
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .chartName }}
+  name: {{ $deployment.name }}
   namespace: {{ .nameSpace }}
   labels:
-    app: {{ .chartName }}
+    app: {{ $deployment.name }}
  
 spec:
   replicas: {{ $deployment.replicas }}
   selector:
     matchLabels:
-      app: {{ .chartName }}
+      app: {{ $deployment.name }}
   template:
     metadata:
       labels:
-        app: {{ .chartName }}
+        app: {{ $deployment.name }}
       {{- if $deployment.force }}
       annotations:
         roller: {{ randAlphaNum 5 }}
@@ -28,12 +27,13 @@ spec:
       containers:
         - name: {{ $deployment.container.name }}
           image: "{{ $deployment.container.image }}:{{ .chartAppVersion }}"
-          imagePullPolicy: {{ $deployment.container.pull }}
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ $deployment.container.port }}
           envFrom:
             - configMapRef:
-                name: {{ .chartName }}
+                name: {{ $deployment.name }}
       imagePullSecrets:
         - name: dockerreg
+---
 {{- end }}
