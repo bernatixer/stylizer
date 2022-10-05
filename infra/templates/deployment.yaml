@@ -36,4 +36,19 @@ spec:
       imagePullSecrets:
         - name: dockerreg
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $deployment.name }}
+  namespace: {{ $nameSpace }}
+ 
+spec:
+  type: NodePort
+  selector:
+    app: {{ $deployment.name }}
+  ports:
+    - port: {{ $deployment.container.port }}
+      targetPort: {{ $deployment.container.port }}
+      nodePort: {{ $deployment.nodePort }}
+---
 {{- end }}
