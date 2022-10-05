@@ -6,7 +6,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $deployment.name }}
-  namespace: {{ .nameSpace }}
+  namespace: {{ $nameSpace }}
   labels:
     app: {{ $deployment.name }}
  
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: {{ $deployment.container.name }}
-          image: "{{ $deployment.container.image }}:{{ .chartAppVersion }}"
+          image: "{{ $deployment.container.image }}:{{ $chartAppVersion }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ $deployment.container.port }}
