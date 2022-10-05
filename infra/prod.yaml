@@ -32,7 +32,7 @@ deployments:
   - name: inference-service
     force: false
     replicas: 1
-    nodePort: 32323
+    nodePort: 32324
     container:
       name: inference
       image: bernatixer/inference-service
