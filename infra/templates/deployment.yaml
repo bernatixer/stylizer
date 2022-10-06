@@ -25,7 +25,7 @@ spec:
       {{- end }}
     spec:
       containers:
-        - name: {{ $deployment.container.name }}
+        - name: {{ $deployment.name }}
           image: "{{ $deployment.container.image }}:{{ $chartAppVersion }}"
           imagePullPolicy: IfNotPresent
           ports:

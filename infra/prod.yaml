@@ -9,7 +9,6 @@ deployments:
     replicas: 1
     nodePort: 31111
     container:
-      name: stylizer
       image: bernatixer/stylizer
       port: 80
 
@@ -18,6 +17,5 @@ deployments:
     replicas: 1
     nodePort: 32222
     container:
-      name: inference
       image: bernatixer/inference-service
       port: 80
