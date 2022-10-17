@@ -1,6 +1,6 @@
 import time
 
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.openapi.utils import get_openapi
 from fastapi.staticfiles import StaticFiles
 from src.core.config import settings
@@ -41,7 +41,6 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
-
 
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next) -> Response:

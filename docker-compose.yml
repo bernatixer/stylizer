@@ -9,8 +9,8 @@ services:
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
 
-  core_service:
-    image: 'core_service'
+  core-service:
+    image: 'core-service'
     ports:
       - "8000:80"
     depends_on:
@@ -22,8 +22,8 @@ services:
     build:
       context: ./core-service
 
-  inference_service:
-    image: 'inference_service'
+  inference-service:
+    image: 'inference-service'
     ports:
       - "8001:80"
     volumes:

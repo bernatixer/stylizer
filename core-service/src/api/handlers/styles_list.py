@@ -1,12 +1,12 @@
-from src.libs.style.models.styles import styles_class
+from src.api.clients.inference_client import InferenceClient
 
 
 class StylesListHandler:
     def __init__(self):
-        pass
+        self.INFERENCE_CLIENT = InferenceClient()
 
     def handle(self):
-        return {"styles": styles_class.STYLES_REPRESENTATIONS}
+        return self.INFERENCE_CLIENT.get_styles()
 
 
 styles_list_handler = StylesListHandler()
