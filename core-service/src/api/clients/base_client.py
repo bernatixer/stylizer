@@ -27,7 +27,10 @@ class BaseClient:
         return {"data": response.json(), "status_code": response.status_code}
 
     @_parse_call
-    def post(self, path: str):
-        response = requests.post(self.BASE_URL + path)
-        response.raise_for_status()
-        return {"data": response.json(), "status_code": response.status_code}
+    def post(self, path: str, body, filename):
+        response = requests.post(
+            self.BASE_URL + path,
+            files={"file": open(filename, "rb")},
+            data=body
+        )
+        return {"data": response.content, "status_code": response.status_code}

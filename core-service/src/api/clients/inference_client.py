@@ -14,6 +14,10 @@ class InferenceClient(BaseClient):
         response = self.get(self.STYLES_URL_PATH)
         return response["data"]
 
-    def stylize(self):
-        response = self.post(self.STYLES_URL_PATH)
+    def stylize(self, filename):
+        response = self.post(
+            self.STYLYZE_URL_PATH,
+            body={"style": "starry"},
+            filename=filename
+        )
         return response["data"]
