@@ -7,7 +7,7 @@ from fastapi import BackgroundTasks, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from src.repositories.transformation import transformations_repository
 from src.schemas.transformation import Transformation
-from src.libs.style.models.styles import styles_class
+# from src.libs.style.models.styles import styles_class
 from src.api.clients.inference_client import InferenceClient
 from PIL import Image
 
@@ -22,9 +22,10 @@ class TransferStyleHandler:
     def handle(
         self, file: UploadFile, style: str, background_tasks: BackgroundTasks, db, current_user
     ):
-        style_path = self.get_style_model_path(style)
-        if not style_path:
-            raise HTTPException(status_code=400, detail="Invalid style provided")
+        # TODO: Improve checking
+        # style_path = self.get_style_model_path(style)
+        # if not style_path:
+        #     raise HTTPException(status_code=400, detail="Invalid style provided")
 
         file_id = str(uuid4())
         filename = "{}/{}.jpg".format(self.TEMP_FOLDER, file_id)
@@ -45,11 +46,11 @@ class TransferStyleHandler:
 
         return FileResponse(filename_result)
 
-    def get_style_model_path(self, style: str):
-        if style in styles_class.STYLES_MODELS:
-            return styles_class.STYLES_MODELS[style]
+    # def get_style_model_path(self, style: str):
+    #     if style in styles_class.STYLES_MODELS:
+    #         return styles_class.STYLES_MODELS[style]
 
-        return None
+    #     return None
 
     def save_image(self, file, filename):
         with open(filename, "wb") as f_destination:
