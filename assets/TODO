@@ -34,6 +34,16 @@ PROD
  - Afegir traces als logs (https://starlette-context.readthedocs.io/en/latest/fastapi.html, https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi, https://docs.datadoghq.com/tracing/trace_collection/dd_libraries/python/?tab=otherenvironments, https://www.starlette.io/middleware/)
  - Investigar si Celery ajudaria: https://fastapi.tiangolo.com/tutorial/background-tasks/#caveat
 
+Models
+ - https://github.com/clovaai/WCT2
+ - https://github.com/NVIDIA/FastPhotoStyle/blob/master/TUTORIAL.md
+ - https://github.com/Kibeom-Hong/Domain-Aware-Style-Transfer
+ - https://github.com/Roujack/awesome-photorealistic-style-transfer
+ - https://github.com/LambdaLabsML/lambda-diffusers#pokemon-text-to-image
+ - https://github.com/Yijunmaverick/UniversalStyleTransfer
+ - https://github.com/luanfujun/deep-photo-styletransfer
+ - https://github.com/limingcv/Photorealistic-Style-Transfer
+
 Refs
 ----
 Deep Learning code: https://colab.research.google.com/drive/1T9oUFvLWJKAOfOQlZgLe14iyUWiY_yYA#scrollTo=VemyMnyPZl31

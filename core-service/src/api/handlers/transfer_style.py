@@ -11,7 +11,6 @@ from src.schemas.transformation import Transformation
 from src.api.clients.inference_client import InferenceClient
 from PIL import Image
 
-import requests
 
 class TransferStyleHandler:
 
