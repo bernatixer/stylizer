@@ -25,7 +25,7 @@ class Logger:
             logHandler = logging.StreamHandler()
             # logHandler = logging.FileHandler(filename="/var/log/stylizer.log")
 
-            formatter = LogJsonFormatter('%(timestamp)s %(level)s %(name)s %(message)s')
+            formatter = LogJsonFormatter('%(message)s')
 
             logHandler.setFormatter(formatter)
             logger.addHandler(logHandler)
