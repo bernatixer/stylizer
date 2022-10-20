@@ -12,10 +12,10 @@ class Logger:
 
     def setup_logs(self):
         loggers = [
-            logging.getLogger("uvicorn.access"),
-            logging.getLogger("uvicorn.error"),
-            logging.getLogger("uvicorn"),
-            logging.getLogger(),
+            # logging.getLogger("uvicorn.access"),
+            # logging.getLogger("uvicorn.error"),
+            # logging.getLogger("uvicorn"),
+            # logging.getLogger(),
         ]
         for logger in loggers:
             for handler in logger.handlers:
