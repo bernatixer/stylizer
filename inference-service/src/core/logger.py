@@ -15,7 +15,7 @@ class Logger:
             # logging.getLogger("uvicorn.access"),
             # logging.getLogger("uvicorn.error"),
             # logging.getLogger("uvicorn"),
-            # logging.getLogger(),
+            logging.getLogger(),
         ]
         for logger in loggers:
             for handler in logger.handlers:
