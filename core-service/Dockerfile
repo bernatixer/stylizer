@@ -8,8 +8,9 @@ COPY ./ /app
 WORKDIR /app/
 
 ENV PYTHONPATH=/app
+ENV NEW_RELIC_CONFIG_FILE=newrelic.ini
 
-CMD ["NEW_RELIC_CONFIG_FILE=./newrelic.ini", "newrelic-admin", "run-program", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+CMD ["newrelic-admin", "run-program", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
 
 # ENTRYPOINT ["newrelic-admin", "run-program"]
 # CMD ["sh", "./prestart.sh"]
