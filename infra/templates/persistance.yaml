@@ -1,5 +1,4 @@
 {{- $chartName := .Chart.Name }}
-{{- $chartAppVersion := .Chart.AppVersion }}
 {{- $nameSpace := .Values.namespace }}
 {{- range $index, $persistance := .Values.persistances }}
 apiVersion: v1
@@ -10,6 +9,7 @@ metadata:
   labels:
     type: local
     app: {{ $persistance.name }}
+
 spec:
   storageClassName: manual
   capacity:
@@ -26,6 +26,7 @@ metadata:
   namespace: {{ $nameSpace }}
   labels:
     app: {{ $persistance.name }}
+
 spec:
   storageClassName: manual
   accessModes:
@@ -39,15 +40,16 @@ kind: Deployment
 metadata:
   namespace: {{ $nameSpace }}
   name: {{ $persistance.name }}-deployment
+
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ $persistance.name }}
+      app: {{ $persistance.name }}-deployment
   template:
     metadata:
       labels:
-        app: {{ $persistance.name }}
+        app: {{ $persistance.name }}-deployment
     spec:
       containers:
         - name: {{ $persistance.name }}
@@ -71,8 +73,7 @@ kind: Service
 metadata:
   namespace: {{ $nameSpace }}
   name: {{ $persistance.name }}
-  labels:
-    app: {{ $persistance.name }}-deployment
+
 spec:
   type: ClusterIP
   ports:
