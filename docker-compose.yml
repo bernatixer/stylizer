@@ -1,6 +1,6 @@
 version: "3.3"
 services:
-  postgres-service:
+  core-service-db:
     image: postgres:15
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata

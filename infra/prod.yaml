@@ -5,17 +5,15 @@ env:
 
 deployments:
   - name: core-service
-    force: false
     replicas: 1
-    nodePort: 31111
+    port: 31111
     container:
       image: bernatixer/stylizer
       port: 80
 
   - name: inference-service
-    force: false
     replicas: 1
-    nodePort: 32222
+    port: 32222
     container:
       image: bernatixer/inference-service
       port: 80
