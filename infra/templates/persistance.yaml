@@ -1,0 +1,84 @@
+{{- $chartName := .Chart.Name }}
+{{- $chartAppVersion := .Chart.AppVersion }}
+{{- $nameSpace := .Values.namespace }}
+{{- range $index, $persistance := .Values.persistances }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ $persistance.name }}-volume
+  namespace: {{ $nameSpace }}
+  labels:
+    type: local
+    app: {{ $persistance.name }}
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{ $persistance.storage }}
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/postgresql"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ $persistance.name }}-volume-claim
+  namespace: {{ $nameSpace }}
+  labels:
+    app: {{ $persistance.name }}
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ $persistance.storage }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ $nameSpace }}
+  name: {{ $persistance.name }}-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $persistance.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $persistance.name }}
+    spec:
+      containers:
+        - name: {{ $persistance.name }}
+          image: postgres:15
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: {{ $persistance.port }}
+          envFrom:
+            - configMapRef:
+                name: postgres-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdata
+      volumes:
+        - name: postgresdata
+          persistentVolumeClaim:
+            claimName: {{ $persistance.name }}-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ $nameSpace }}
+  name: {{ $persistance.name }}
+  labels:
+    app: {{ $persistance.name }}-deployment
+spec:
+  type: ClusterIP
+  ports:
+   - port: {{ $persistance.port }}
+     targetPort: {{ $persistance.port }}
+  selector:
+    app: {{ $persistance.name }}-deployment
+---
+{{- end }}

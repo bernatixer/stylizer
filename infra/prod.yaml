@@ -19,3 +19,8 @@ deployments:
     container:
       image: bernatixer/inference-service
       port: 80
+
+persistances:
+  - name: core-service-db
+    storage: 10Gi
+    port: 5432
