@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/bernatixer/stylizer/main/assets/logo.png?token=GHSAT0AAAAAABHKMQN7D2LHLOFVZOZFGOZEY3BK62A" alt="Stylizer">
+  <img src="https://github.com/bernatixer/stylizer/blob/main/assets/logo.png?raw=true" alt="Stylizer">
     <a href="https://github.com/bernatixer/stylizer/actions" target="_blank">
         <img src="https://github.com/bernatixer/stylizer/actions/workflows/build-and-deploy.yaml/badge.svg" alt="Deployment">
     </a>
