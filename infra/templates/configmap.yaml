@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Chart.Name }}
-  namespace: {{ .Values.namespace }}
- 
-data:
-  HTTP_ADDR: {{ .Values.env.HTTP_ADDR }}

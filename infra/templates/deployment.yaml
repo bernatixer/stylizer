@@ -25,9 +25,6 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ $deployment.container.port }}
-          # envFrom:
-          #   - configMapRef:
-          #       name: {{ $deployment.name }}
       imagePullSecrets:
         - name: dockerreg
 ---

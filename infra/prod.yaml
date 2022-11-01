@@ -1,8 +1,5 @@
 namespace: default
 
-env:
-  HTTP_ADDR: ':5000'
-
 deployments:
   - name: core-service
     replicas: 1
