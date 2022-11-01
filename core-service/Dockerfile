@@ -11,5 +11,6 @@ ENV PYTHONPATH=/app
 ENV NEW_RELIC_CONFIG_FILE=newrelic.ini
 
 RUN echo -e $(cat /run/secrets/CORE_SERVICE_SECRETS) >> .env
+RUN cat .env
 
 CMD ["newrelic-admin", "run-program", "sh", "./prestart.sh"]
