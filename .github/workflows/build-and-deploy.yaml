@@ -51,7 +51,8 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
           context: "{{defaultContext}}:core-service"
-          secrets: ${{ secrets.CORE_SERVICE_SECRETS }}
+          secrets: |
+            JWT_SECRET=letixer
 
       - name: Build and push
         uses: docker/build-push-action@v3

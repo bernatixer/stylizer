@@ -14,7 +14,7 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - postgres
+      - core-service-db
     volumes:
       - ./core-service:/app
     env_file:
