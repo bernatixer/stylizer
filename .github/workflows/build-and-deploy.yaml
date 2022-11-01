@@ -51,8 +51,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
           context: "{{defaultContext}}:core-service"
-          secrets: |
-            "CORE_SERVICE_SECRETS=${{ secrets.CORE_SERVICE_SECRETS }}"
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -60,7 +58,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/inference-service:${{ steps.tag_version.outputs.new_tag }}
           context: "{{defaultContext}}:inference-service"
-          secrets: ${{ secrets.INFERENCE_SERVICE_SECRETS }}
 
       - name: Generate GitHub release tag
         uses: ncipollo/release-action@v1
