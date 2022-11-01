@@ -47,12 +47,12 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v3
-        env:
-          ENV_SECRETS: ${{ secrets.CORE_SERVICE_SECRETS }}
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/stylizer:${{ steps.tag_version.outputs.new_tag }}
           context: "{{defaultContext}}:core-service"
+          secrets: |
+            "CORE_SERVICE_SECRETS=${{ secrets.CORE_SERVICE_SECRETS }}"
 
       - name: Build and push
         uses: docker/build-push-action@v3
