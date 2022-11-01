@@ -63,7 +63,7 @@ This service responsability is mainly to transform an image using a machine lear
 # Usage
 
 Apart from being able to deploy the whole ecosystem through Kubernetes, there is a docker-compose already defined for development purposes or either simpler deployments.
-You can find the docs here: http://localhost:8000/docs
+
 
 Format the code using the following command:
 ```bash
@@ -72,35 +72,37 @@ make format
 
 > ℹ️ Images are returned in JPG format
 
-## Run stylizer locally
+### Development
 
-Run the following commands to build the Docker container and run it:
+You can develop localy using the docker-compose file. They have an option to detect code changes, so there is no need to rebuild the dockers after code changes.
 
-First build the image:
+First build the images:
 ```bash
 make build
 ```
 
-Then, run the docker:
+Then, run the dockers:
 ```bash
 make run
 ```
 
-Service starts on port: http://localhost:8000
+Core service starts on port: http://localhost:8000
+Inference service starts on port: http://localhost:8001
+You can find the docs for the endpoints here: http://localhost:8000/docs
 
-# Deploy
+### Deploy
 
 This application has been built using Kubernetes and with a CI/CD pipeline using GitHub Actions and ArgoCD.
 
 <div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/assets/pipeline.jpg" alt="CI/CD pipeline"></div>
 
-## Database migrations
+### Database migrations
 
-In order to run database migrations, the way to do it is through Alembic.
+In order to run database migrations, the way to do it is through Alembic and in the same repository, there is no need to do them directly on the DB.
 
 ```bash
-cd app
+cd core-service/app
 alembic revision -m "Migration description name"
 ```
 
-This will create a new migration file under the alembic folder, in which you can set there the migration.
+This will create a new migration file under the alembic folder, in which you can detail there the migration.
