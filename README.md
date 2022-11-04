@@ -90,13 +90,7 @@ Core service starts on port: http://localhost:8000
 Inference service starts on port: http://localhost:8001
 You can find the docs for the endpoints here: http://localhost:8000/docs
 
-### Deploy
-
-This application has been built using Kubernetes and with a CI/CD pipeline using GitHub Actions and ArgoCD.
-
-<div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/assets/pipeline.jpg" alt="CI/CD pipeline"></div>
-
-### Database migrations
+#### Database migrations
 
 In order to run database migrations, the way to do it is through Alembic and in the same repository, there is no need to do them directly on the DB.
 
@@ -106,3 +100,12 @@ alembic revision -m "Migration description name"
 ```
 
 This will create a new migration file under the alembic folder, in which you can detail there the migration.
+
+
+# Production
+
+This application has been built using Kubernetes and with a CI/CD pipeline using GitHub Actions and ArgoCD.
+
+<div align="center"><img src="https://github.com/bernatixer/stylizer/blob/main/assets/pipeline.jpg" alt="CI/CD pipeline"></div>
+
+In order to add an SSL layer, you can run an nginx service defined in `/infra/nginx`.
